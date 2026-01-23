@@ -1,0 +1,91 @@
+---------------------------------------------------------------------------------------
+_ _  _ _ ___ _ ____ _       ___  ____ ____  _ ____ ____ ___    ____ ____ ___ _  _ ___  
+| |\ | |  |  | |__| |       |__] |__/ |  |  | |___ |     |     [__  |___  |  |  | |__] 
+| | \| |  |  | |  | |___    |    |  \ |__| _| |___ |___  |     ___] |___  |  |__| |    
+                                                                                       
+---------------------------------------------------------------------------------------
+
+Install NodeJS (if hasn't been installed yet)
+
+------
+
+Setup tutorial link here (2025):
+
+https://www.youtube.com/watch?v=7pbQ4ZKPBiU [Vector M:] (How to Install Node JS ✅ | Updated (2025))
+
+___________________________
+
+
+Initialize a new Expo project using the following command:
+
+npx create-expo-app@latest ./
+
+'./' informs the command to create the project within the current repository.
+
+To use this command, ensure that you are within a folder of the project.
+
+___________________________
+
+
+Install the 'Expo Go' mobile app on your preferred app store which will be the development environment.
+
+- Go to the Expo documentation
+
+- Go to the 'Set up your environment' section
+
+- Follow the steps there
+
+	* Android device
+	* Expo Go
+
+-  Ensure that the 'Expo Go' app is installed in your mobile phone
+
+- Run the `npx expo start` command in your IDE to start the development server for the mobile app
+
+___________________________
+
+Current Project Structure:
+
+- tsconfig.json
+
+: contains the config for type-safety of TypeScript
+
+- package.json
+
+: contains dependencies of the project
+
+- app.json
+
+: contains config for the application itself
+
+- scripts
+
+: by default contains a script to reset the application to its bare minimum
+
+- .gitignore
+
+: determine which files or folders to be excluded when pushing to Git
+
+- Boilerplate Code
+
+: found in the hooks, constants, and components folders
+
+- assets
+
+: contains assets of the project like images, videos, documents, etc
+
+- app
+
+: contains the routing functionality similar to that of Next.JS
+
+___________________________
+
+Explanation about the app.json file can be found in the following directory "C:\WebDev\React_Native\app-json-file-explain-for-expo-react-native.mp4"
+
+___________________________
+
+Reset the project to its bare minimum with the following command:
+
+npm run reset-project
+
+==========================================
