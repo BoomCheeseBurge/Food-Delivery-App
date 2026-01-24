@@ -89,3 +89,75 @@ Reset the project to its bare minimum with the following command:
 npm run reset-project
 
 ==========================================
+
+-----------------------------------------------------------------------
+____ ____ ___ _  _ ___     _  _ ____ ___ _ _  _ ____ _ _ _ _ _  _ ___  
+[__  |___  |  |  | |__]    |\ | |__|  |  | |  | |___ | | | | |\ | |  \ 
+___] |___  |  |__| |       | \| |  |  |  |  \/  |___ |_|_| | | \| |__/ 
+                                                                       
+____ _  _ ___     ____ ____ _  _ ___ ____ 
+|__| |\ | |  \    |___ |  | |\ |  |  [__  
+|  | | \| |__/    |    |__| | \|  |  ___] 
+                                          
+____ _  _ ___     _ ____ ____ _  _ ____ 
+|__| |\ | |  \    | |    |  | |\ | [__  
+|  | | \| |__/    | |___ |__| | \| ___] 
+                                        
+-----------------------------------------------------------------------
+
+- Go to the Nativewind documentation.
+
+- Go to the 'Installation' section and look for the installation with Expo
+
+- Follow the given steps there.
+
+The following commands are used:
+
+[ necessary nativewind dependencies ]
+
+npx expo install nativewind react-native-reanimated@~3.17.4 react-native-safe-area-context@5.4.0
+npx expo install --dev tailwindcss@^3.4.17 prettier-plugin-tailwindcss@^0.5.11
+
+[ nativewind config ]
+
+npx tailwindcss init
+
+___________________________
+
+Created the 'global.css' file under the 'app' folder.
+
+Created 'babel.config.js', 'metro.config.js', and 'nativewind-env.d.ts' files under the project root folder.
+
+Import global.css inside the layout file under app directory.
+
+Added bundler of type "metro" in the app.json file.
+
+Changed value of "./App.tsx" to "./app/**/*.{js,jsx,ts,tsx}" in the tailwind.config.js.
+
+If Nativewind styles are still not showing, then run the following command to clear the cache when starting the server:
+
+npx expo start --clear
+
+Also, ensure that the spelling for globals.css is correct in the metro config file.
+
+___________________________
+
+Added the necessary colors and fonts to the tailwind config file.
+
+___________________________
+
+Created the 'constants' folder under the project root directory.
+
+Created the 'index.ts' file under that constants folder.
+
+-------
+
+Since the imports are not recognized within index.ts, created the 'images.d.ts' file in the project root.
+
+This file makes it possible to import images across the app when they are exported outside of the app and components folders.
+
+-------
+
+Import fonts in the layout file under the app folder.
+
+==========================================
