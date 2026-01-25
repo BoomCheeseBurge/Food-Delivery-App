@@ -161,3 +161,32 @@ This file makes it possible to import images across the app when they are export
 Import fonts in the layout file under the app folder.
 
 ==========================================
+
+-------------------------------------------------------------------------------------------------
+_ _  _ ___  _    ____ _  _ ____ _  _ ___    _  _ ____ _  _ ____    ____ ____ ____ ____ ____ _  _ 
+| |\/| |__] |    |___ |\/| |___ |\ |  |     |__| |  | |\/| |___    [__  |    |__/ |___ |___ |\ | 
+| |  | |    |___ |___ |  | |___ | \|  |     |  | |__| |  | |___    ___] |___ |  \ |___ |___ | \| 
+                                                                                                 
+-------------------------------------------------------------------------------------------------
+
+Modified index.tsx page.
+
+___________________________
+
+Added bundled tailwind classes shortcuts in the 'globals.css' file
+
+___________________________
+
+To use dynamic classes, installed the following packaged:
+
+npm install clsx
+
+https://www.npmjs.com/package/clsx
+
+___________________________
+
+Created 'components' folder under the project's root folder.
+
+Created 'CartButton.tsx' component.
+
+==========================================

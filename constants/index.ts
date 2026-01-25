@@ -1,3 +1,4 @@
+import { images } from "./icons";
 
 export const CATEGORIES = [
     {
@@ -26,25 +27,25 @@ export const offers = [
     {
         id: 1,
         title: "SUMMER COMBO",
-        image: "burgerOne",
+        image: images.burgerOne,
         color: "#D33B0D",
     },
     {
         id: 2,
         title: "BURGER BASH",
-        image: "burgerTwo",
+        image: images.burgerTwo,
         color: "#DF5A0C",
     },
     {
         id: 3,
         title: "PIZZA PARTY",
-        image: "pizzaOne",
+        image: images.pizzaOne,
         color: "#084137",
     },
     {
         id: 4,
         title: "BURRITO DELIGHT",
-        image: "burrito",
+        image: images.burrito,
         color: "#EB920C",
     },
 ];
@@ -52,27 +53,27 @@ export const offers = [
 export const sides = [
     {
         name: "Fries",
-        image: "fries",
+        image: images.fries,
         price: 3.5,
     },
     {
         name: "Onion Rings",
-        image: "onionRings",
+        image: images.onionRings,
         price: 4.0,
     },
     {
         name: "Mozarella Sticks",
-        image: "mozarellaSticks",
+        image: images.mozarellaSticks,
         price: 5.0,
     },
     {
         name: "Coleslaw",
-        image: "coleslaw",
+        image: images.coleslaw,
         price: 2.5,
     },
     {
         name: "Salad",
-        image: "salad",
+        image: images.salad,
         price: 4.5,
     },
 ];
@@ -80,37 +81,37 @@ export const sides = [
 export const toppings = [
     {
         name: "Avocado",
-        image: "avocado",
+        image: images.avocado,
         price: 1.5,
     },
     {
         name: "Bacon",
-        image: "bacon",
+        image: images.avocado,
         price: 2.0,
     },
     {
         name: "Cheese",
-        image: "cheese",
+        image: images.cheese,
         price: 1.0,
     },
     {
         name: "Cucumber",
-        image: "cucumber",
+        image: images.cucumber,
         price: 0.5,
     },
     {
         name: "Mushrooms",
-        image: "mushrooms",
+        image: images.mushrooms,
         price: 1.2,
     },
     {
         name: "Onions",
-        image: "onions",
+        image: images.onions,
         price: 0.5,
     },
     {
         name: "Tomatoes",
-        image: "tomatoes",
+        image: images.tomatoes,
         price: 0.7,
     },
 ];
