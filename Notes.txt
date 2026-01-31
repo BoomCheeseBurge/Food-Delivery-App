@@ -190,3 +190,22 @@ Created 'components' folder under the project's root folder.
 Created 'CartButton.tsx' component.
 
 ==========================================
+
+--------------------------------------------------------
+___  ____ ____ _ ____    ____ ____ _  _ ___ _ _  _ ____ 
+|__] |__| [__  | |       |__/ |  | |  |  |  | |\ | | __ 
+|__] |  | ___] | |___    |  \ |__| |__|  |  | | \| |__] 
+                                                        
+--------------------------------------------------------
+
+Created a new route group called 'auth' under the app directory (with a corresponding layout inside).
+
+Created 'sign-in' and 'sign-up' pages within that group. 
+
+___________________________
+
+Created a new route group called 'tabs' under the app directory (with a corresponding layout inside).
+
+Created 'cart', 'profile', and 'search' pages within that group.
+
+==========================================
