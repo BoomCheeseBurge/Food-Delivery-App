@@ -209,3 +209,33 @@ Created a new route group called 'tabs' under the app directory (with a correspo
 Created 'cart', 'profile', and 'search' pages within that group.
 
 ==========================================
+
+----------------------------------------------------------------
+____ ____ ___ _  _ ___     ____ ___  ___  _ _ _ ____ _ ___ ____ 
+[__  |___  |  |  | |__]    |__| |__] |__] | | | |__/ |  |  |___ 
+___] |___  |  |__| |       |  | |    |    |_|_| |  \ |  |  |___ 
+                                                                
+----------------------------------------------------------------
+
+
+Created a new project in AppWrite called "Food_Delivery_App" with type "React Native".
+
+The full app name is ReState (com.expo.fooddelivery)
+
+After creating the AppWrite platform for this mobile app, AppWrite doesn't directly give you the steps to install AppWrite dependencies.
+
+As a result, you will need to go to this documentation to continue with the setup.
+
+https://appwrite.io/docs/quick-starts/react-native
+
+___________________________
+
+Created the environment variable file to store project secrets.
+
+___________________________
+
+Created a directory called 'lib' to store functions and configurations that will be used throughout the entirety of the app.
+
+Created 'appwrite.ts' file inside that directory to centralize all AppWrite configurations from there.
+
+==========================================
