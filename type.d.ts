@@ -18,6 +18,17 @@ interface AuthButtonProps {
     isLoading?: boolean;
 }
 
+interface CreateUserParams {
+    email: string;
+    password: string;
+    name: string;
+}
+
+interface SignInParams {
+    email: string;
+    password: string;
+}
+
 // -----------
 
 export interface MenuItem extends Models.Document {
@@ -90,17 +101,6 @@ interface ProfileFieldProps {
     label: string;
     value: string;
     icon: ImageSourcePropType;
-}
-
-interface CreateUserPrams {
-    email: string;
-    password: string;
-    name: string;
-}
-
-interface SignInParams {
-    email: string;
-    password: string;
 }
 
 interface GetMenuParams {

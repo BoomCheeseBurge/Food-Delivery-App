@@ -308,3 +308,24 @@ ___________________________
 Created 'type.d.ts' file in the root directory to store Typescript-related interfaces.
 
 ==========================================
+
+--------------------------------------------------------------------------------
+____ _  _ ___ _  _    ____ _  _ _  _ ____ ___ _ ____ _  _ ____ _    _ ___ _   _ 
+|__| |  |  |  |__|    |___ |  | |\ | |     |  | |  | |\ | |__| |    |  |   \_/  
+|  | |__|  |  |  |    |    |__| | \| |___  |  | |__| | \| |  | |___ |  |    |   
+                                                                                
+--------------------------------------------------------------------------------
+
+Added additional Appwrite configurations for Client, Account, Avatars, and TablesDB.
+
+Created 'createdNewUser' function in appwrite config.
+
+Created 'signInUser' function in appwrite config.
+
+___________________________
+
+Used the 'createdNewUser' function in 'sign-up' page.
+
+Used the 'signInUser' function in 'sign-in' page.
+
+==========================================

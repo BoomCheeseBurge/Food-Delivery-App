@@ -1,3 +1,6 @@
+import { CreateUserParams, SignInParams } from "@/type";
+import { Account, Avatars, Client, ID, Query, TablesDB } from "react-native-appwrite";
+
 export const config = {
 
     platform: 'com.expo.fooddelivery',
@@ -5,4 +8,139 @@ export const config = {
     projectId: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID,
     databaseId: process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID,
     usersTableId: process.env.EXPO_PUBLIC_APPWRITE_USERS_TABLE_ID,
+}
+
+const validateConfig = () => {
+
+    // Create a copy to avoid mutating the original while checking
+    const validatedConfig = {} as { [K in keyof typeof config]: string };
+
+    for (const [key, value] of Object.entries(config)) {
+
+        if (value === undefined || value === null || value === "") {
+            throw new Error(
+                `Configuration Error: The field "${key}" is missing. ` +
+                `Please check your .env file.`
+            );
+        }
+        // Type casting to string because we've verified it's not null/undefined
+        validatedConfig[key as keyof typeof config] = value as string;
+    }
+
+    return validatedConfig;
+};
+
+// Validate all config fields at once
+const validatedConfig = validateConfig();
+
+// Initialize AppWrite client
+export const client = new Client()
+                    .setEndpoint(validatedConfig.endpoint)
+                    .setProject(validatedConfig.projectId)
+                    .setPlatform(validatedConfig.platform);
+
+/**
+ * Define functionalities used from AppWrite
+ */
+
+// TO Generate an avatar image based on the first and last names
+export const avatar = new Avatars(client);
+
+// TO create new user account
+export const account = new Account(client);
+
+// TO access the tables database
+export const tablesDB = new TablesDB(client);
+
+// ------------------------------------------------------------------------------------
+
+/**
+ * Creates a new user account in Appwrite
+ * 
+ */
+export const createNewUser = async ({ name, email, password }: CreateUserParams) => {
+
+    try {
+        // Create a new user account in Appwrite
+        const newAccount = await account.create({ 
+                                                    userId: ID.unique(), 
+                                                    name: name, 
+                                                    email: email, 
+                                                    password: password 
+                                                });
+
+        // Throw an error if the account failed to be created
+        if(!newAccount) throw Error;
+
+        // Automatically sign in the newly created user
+        await signInUser({ email, password });
+
+        // Generates avatar image using the username's initials and stores in database
+        const avatarUrl = avatar.getInitialsURL(name);
+
+        // Insert new user into Appwrite database and return the newly created user
+        return await tablesDB.createRow({
+            databaseId: validatedConfig.databaseId,
+            tableId: validatedConfig.usersTableId,
+            rowId: ID.unique(),
+            data: {
+                accountId: newAccount.$id,
+                name,
+                email,
+                avatar: avatarUrl
+            },
+            // permissions: [Permission.write(Role.user(idea.userId))]
+        });
+
+    } catch (error) {
+        throw new Error(error as string);
+    }
+}
+
+/**
+ * Sign in an user account
+ * 
+ */
+export const signInUser = async ({ email, password }: SignInParams) => {
+
+    try {
+        // Create a new session for the user based on email and password inputs
+        const session = await account.createEmailPasswordSession({ email, password });
+
+    } catch (error) {
+        throw new Error(error as string);
+    }
+}
+
+/**
+ * Retrieve logged-in user
+ * 
+ */
+export const getCurrentUser = async () => {
+    
+    try {
+        // Get current logged-in user
+        const currentAccount = await account.get();
+
+        // Check if user exists
+        if(!currentAccount) throw Error;
+
+        const users = await tablesDB.listRows({
+            databaseId: validatedConfig.databaseId,
+            tableId: validatedConfig.usersTableId,
+            queries: [Query.equal('accountId', currentAccount.$id)], // optional
+            // transactionId: '<TRANSACTION_ID>', // optional
+            total: false // optional
+        });
+
+        // Check if query returns empty
+        if(!users) throw Error;
+
+        return users.rows[0];
+
+    } catch (error) {
+        console.error(error);
+
+        throw new Error(error as string);
+    }
 }

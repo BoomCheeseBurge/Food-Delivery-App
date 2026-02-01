@@ -1,5 +1,6 @@
 import AuthButton from '@/components/AuthButton'
 import AuthInput from '@/components/AuthInput'
+import { createNewUser } from '@/lib/appwrite'
 import { Link, router } from 'expo-router'
 import React, { useState } from 'react'
 import { Alert, Text, View } from 'react-native'
@@ -10,13 +11,23 @@ const SignUp = () => {
     const [form, setForm] = useState({ name: '', email: '', password: '' });
 
     const submit = async () => {
-        if (!form.name || !form.email || !form.password) return Alert.alert('Missing Field(s)', 'Please enter a valid email address & password.');
+
+        // Ease of reusability
+        const { name, email, password } = form;
+
+        if (!name || !email || !password) return Alert.alert('Missing Field(s)', 'Please enter a valid email address & password.');
 
         setIsSubmitting(true);
 
         try {
-            Alert.alert('Success', 'You have signed-up successfully!');
+            // Create new user in Appwrite
+            await createNewUser({
+                name,
+                email,
+                password
+            });
 
+            // Redirect the user back to home screen
             router.replace('/');
 
         } catch (error: any) {
