@@ -31,6 +31,14 @@ interface SignInParams {
 
 // -----------
 
+interface TabBarIconProps {
+    focused: boolean;
+    icon: ImageSourcePropType;
+    title: string;
+}
+
+// -----------
+
 export interface MenuItem extends Models.Document {
     name: string;
     price: number;
@@ -78,12 +86,6 @@ export interface CartStore {
     clearCart: () => void;
     getTotalItems: () => number;
     getTotalPrice: () => number;
-}
-
-interface TabBarIconProps {
-    focused: boolean;
-    icon: ImageSourcePropType;
-    title: string;
 }
 
 interface PaymentInfoStripeProps {
