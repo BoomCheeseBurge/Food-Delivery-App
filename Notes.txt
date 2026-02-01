@@ -239,3 +239,72 @@ Created a directory called 'lib' to store functions and configurations that will
 Created 'appwrite.ts' file inside that directory to centralize all AppWrite configurations from there.
 
 ==========================================
+
+----------------------------------------------------
+____ _  _ ___ _  _    ____ ____ ____ ____ ____ _  _ 
+|__| |  |  |  |__|    [__  |    |__/ |___ |___ |\ | 
+|  | |__|  |  |  |    ___] |___ |  \ |___ |___ | \| 
+                                                    
+----------------------------------------------------
+
+In the AppWrite console, go to the Databases section and create a new database.
+
+Give the name of the database, "food-delivery-dev", for example, since this is for dev purposes.
+
+Copy the ID of the newly created AppWrite database.
+
+Head on over to '.env.local' and paste in the ID of the AppWrite database as a secret there.
+
+___________________________
+
+Created a new table for 'Users' in the database.
+
+Copy the ID of the newly created table and store it as a secret in '.env.local' 
+
+The following columns are created for this table along with their attributes:
+
+- 'name'
+
+Type: String, Size: 100, Required
+
+- 'email'
+
+Type: Email, Required
+
+- 'accountId'
+
+Type: String, Size: 2200, Required
+
+- 'avatar'
+
+Type: URL, Required
+
+[ NOTE: notice how after creating the first column, the option for creating rows appear instead of columns. Go to the 'Columns' section to create more columns ]
+
+-=== Role ===-
+
+Head on over to the 'Settings' tab and add a role of type 'Any'.
+
+Select all available permissions and update it.
+
+___________________________
+
+Copy and save the table ID in the appwrite config file.
+
+___________________________
+
+Updated the auth layout to add the necessary UI.
+
+KeyboardAvoidingView component is used to ensure that when a user is writing any inputs, the keyboard will automatically appear below those inputs.  
+
+KeyboardPersistTaps prop basically tells React Nactive to dismiss the keyboard when there is a tap outside of it.
+
+___________________________
+
+Created 'AuthInput' and 'AuthButton' components in the 'components' folder.
+
+___________________________
+
+Created 'type.d.ts' file in the root directory to store Typescript-related interfaces.
+
+==========================================
