@@ -396,3 +396,40 @@ ___________________________
 Setting up Seer from Sentry is optional (but skeptical with its functionality being intrusive in the app)
 
 ==========================================
+
+---------------------------------------------------------------
+____ ___  ___  _    _   _    ___  _  _ ____ ___ ____ _  _ ___  
+|__| |__] |__] |     \_/       /  |  | [__   |  |__| |\ | |  \ 
+|  | |    |    |___   |       /__ |__| ___]  |  |  | | \| |__/ 
+                                                               
+---------------------------------------------------------------
+
+Global store management package that is lighweigth, minimalistic, and easy-to-learn API with zero boileplate that is usually brought by Redux 
+
+(seems like the project tutorial I'm watching has something against Redux or possibly endorsed by Zustand) 
+
+Zustand claims unlike RN Context API, it avoids re-render issues, so its better for performance
+
+___________________________
+
+Installed Zustand package with the following command:
+
+npm install zustand
+
+___________________________
+
+Created a new folder in root directory called 'store'
+
+Created 'auth.store.ts' file inside that fodler.
+
+___________________________
+
+Call the auth store inside the root layout to retrieve isLoading and fetchAuthenticatedUser.
+
+Call the auth store inside the tabs layout to check if the user is authenticated or not.
+
+Call the auth store inside the auth layout to check if the user is authenticated or not.
+
+Call the auth store inside index.tsx to retrieve authenticated user.
+
+==========================================
