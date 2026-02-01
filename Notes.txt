@@ -329,3 +329,70 @@ Used the 'createdNewUser' function in 'sign-up' page.
 Used the 'signInUser' function in 'sign-in' page.
 
 ==========================================
+
+-----------------------------------------------------------
+____ ___  ___  _    _   _    ____ ____ _  _ ___ ____ _   _ 
+|__| |__] |__] |     \_/     [__  |___ |\ |  |  |__/  \_/  
+|  | |    |    |___   |      ___] |___ | \|  |  |  \   |   
+                                                           
+-----------------------------------------------------------
+
+Signed up using this link: https://sentry.io/jsmastery/?
+
+___________________________
+
+SKip the onboarding process in the sign-up process since the Expo platform option isn't available.
+
+Setup with Expo provided through the following link:
+
+https://docs.sentry.io/platforms/react-native/manual-setup/expo/
+
+https://docs.expo.dev/guides/using-sentry/
+
+___________________________
+
+Run the following command to set up Sentry in the project:
+
+npx @sentry/wizard@latest -i reactNative
+
+Enter 'Y' for continue anyway
+
+Choose 'Sentry SaaS (sentry.io)' option
+
+Choose 'Yes' since account is already created
+
+A redirect to sentry webpage will be opened. Click on 'Create new project'.
+
+Use this slug: react-native-food-delivery
+
+If the project creation is successful, there should be this output in the console.
+
+◇  Login complete.
+│
+◇  Selected project pt-itpro-citra-indonesia/react-native-food-delivery
+
+Choose 'Yes' for session replay.
+
+Choose 'Yes' for feedback widget.
+
+Choose 'Yes' to enable logs.
+
+Choose 'No' for MCP server config since it's not being used.
+
+Added the given test Button component in the console within index.tsx to the ListFooterComponent.
+
+Afterwards, reload the app and click the button in the app to generate an error for Sentry.
+
+Then, click on given link to check your Sentry project issues.
+
+___________________________
+
+Hosting Sentry on your own hardware is NOT recommended:
+
+https://www.bugsink.com/blog/why-i-gave-up-on-self-hosted-sentry/
+
+___________________________
+
+Setting up Seer from Sentry is optional (but skeptical with its functionality being intrusive in the app)
+
+==========================================

@@ -1,7 +1,7 @@
-import { images } from '@/constants/icons'
-import { Slot } from 'expo-router'
-import React from 'react'
-import { Dimensions, Image, ImageBackground, KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native'
+import { images } from '@/constants/icons';
+import { Slot } from 'expo-router';
+import React from 'react';
+import { Dimensions, Image, ImageBackground, KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native';
 
 export default function AuthLayout() {
     return (
