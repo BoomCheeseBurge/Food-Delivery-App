@@ -257,7 +257,7 @@ Head on over to '.env.local' and paste in the ID of the AppWrite database as a s
 
 ___________________________
 
-Created a new table for 'Users' in the database.
+Created a new table for 'users' in the database.
 
 Copy the ID of the newly created table and store it as a secret in '.env.local' 
 
@@ -442,5 +442,190 @@ _ _  _ ___  _    ____ _  _ ____ _  _ ___    ___ ____ ___     _  _ ____ _  _
 -----------------------------------------------------------------------------
 
 Added Expo tab navigation inside the tabs layout.
+
+==========================================
+
+---------------------------------------------------------------------------------------------------
+___  ____ ____ _ ____ _  _    ___  ___     ____ ____ ____ _  _ _ ___ ____ ____ ___ _  _ ____ ____ 
+|  \ |___ [__  | | __ |\ |    |  \ |__]    |__| |__/ |    |__| |  |  |___ |     |  |  | |__/ |___ 
+|__/ |___ ___] | |__] | \|    |__/ |__]    |  | |  \ |___ |  | |  |  |___ |___  |  |__| |  \ |___ 
+                                                                                                  
+---------------------------------------------------------------------------------------------------
+
+The first thing to do is create a new table in Appwrite for storing menu category.
+
+Head on over to the previously created database and add a new table called 'categories'.
+
+Copy the ID of the newly created table and store it as a secret in '.env.local' 
+
+The following columns are created for this table along with their attributes:
+
+- 'name'
+
+Type: String, Size: 100, Required
+
+- 'description'
+
+Type: String, Size: 100, Required
+
+[ NOTE: notice how after creating the first column, the option for creating rows appear instead of columns. Go to the 'Columns' section to create more columns ]
+
+-=== Role ===-
+
+Head on over to the 'Settings' tab and add a role of type 'All users'.
+
+Select all available permissions and update it.
+
+Copy and save the 'categories' table ID in the appwrite config file.
+
+___________________________
+
+Created a new table called 'menu'.
+
+Copy the ID of the newly created table and store it as a secret in '.env.local'.
+
+The following columns are created for this table along with their attributes:
+
+- 'name'
+
+Type: String, Size: 200, Required
+
+- 'description'
+
+Type: String, Size: 2000, Required
+
+- 'image_url'
+
+Type: URL, Required
+
+- 'price'
+
+Type: Float, Min: 1, Max: 10000, Required
+
+- 'rating'
+
+Type: Float, Min: 1, Max: 5, Required
+
+- 'calories'
+
+Type: Integer, Min: 1, Max: 10000, Required
+
+- 'protein'
+
+Type: Integer, Min: 0, Max: 1000, Required
+
+[ NOTE: notice how after creating the first column, the option for creating rows appear instead of columns. Go to the 'Columns' section to create more columns ]
+
+-=== Role ===-
+
+Head on over to the 'Settings' tab and add a role of type 'All users'.
+
+Select all available permissions and update it.
+
+Copy and save the 'menu' table ID in the appwrite config file.
+
+___________________________
+
+Still within the 'menu' table but now creating the relationships with other tables.
+
+- 'Categories' table
+
+Type: Two-way, Attribute key: categories, Attribute key (related collection): menu, Relation: Many to one, On deleting a row: Cascade
+
+-=== Role ===-
+
+Head on over to the 'Settings' tab and add a role of type 'All users'.
+
+Select all available permissions and update it.
+
+___________________________
+
+Created a new table called 'customizations' to store additional things to the menu item.
+
+Copy the ID of the newly created table and store it as a secret in '.env.local'.
+
+The following columns are created for this table along with their attributes:
+
+- 'name'
+
+Type: String, Size: 100, Required
+
+- 'price'
+
+Type: Float, Min: 1, Max: 10000, Required
+
+- 'type'
+
+Type: Enum, Elements: [topping, side, size, crust, bread, spice, base, sauce], Required
+
+[ NOTE: notice how after creating the first column, the option for creating rows appear instead of columns. Go to the 'Columns' section to create more columns ]
+
+-=== Role ===-
+
+Head on over to the 'Settings' tab and add a role of type 'All users'.
+
+Select all available permissions and update it.
+
+Copy and save the 'customizations' table ID in the appwrite config file.
+
+___________________________
+
+Created a new table called 'menu_customizations' to accommodate how customizations only belong to certain categories.
+
+This is a joint table where one is pointing to the menu item and the other to its corresponding customization.
+
+Copy the ID of the newly created table and store it as a secret in '.env.local'.
+
+Created the following relationship(s) with other table(s).
+
+- 'menu' table
+
+Type: Two-way, Attribute key: menu, Attribute key (related collection): menuCustomizations, Relation: Many to one, On deleting a row: Cascade
+
+- 'customizations' table
+
+Type: Two-way, Attribute key: customizations, Attribute key (related collection): menuCustomizations, Relation: Many to one, On deleting a row: Cascade
+
+-=== Role ===-
+
+Head on over to the 'Settings' tab and add a role of type 'All users'.
+
+Select all available permissions and update it.
+
+Copy and save the 'menu_customizations' table ID in the appwrite config file.
+
+___________________________
+
+[ Create New AppWrite Bucket ]
+
+- Go to the 'Storage' section in the AppWrite console
+
+- Click on the 'Create bucket' button
+
+- Name it any way you want (perhaps a suggested one can be 'assets')
+
+- For testing purposes, go to the 'Settings' tab of the newly created bucket
+
+- Scroll down to 'Permissions' and add a role of type 'All users'.
+
+- Select all available permissions.
+
+- Update the changes
+
+Reference:
+
+https://appwrite.io/docs/products/storage
+
+___________________________
+
+Added the newly created bucket ID into .env and to the config object in appwrite.ts
+
+Added the storage client initialization object in appwrite.ts
+
+Created a new AppWrite function called 'uploadPropertyImages' to upload new property images into the AppWrite bucket.
+
+Reference:
+
+https://appwrite.io/docs/tutorials/react-native/step-6
 
 ==========================================

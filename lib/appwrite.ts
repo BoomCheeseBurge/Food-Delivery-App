@@ -1,5 +1,5 @@
 import { CreateUserParams, SignInParams } from "@/type";
-import { Account, Avatars, Client, ID, Query, TablesDB } from "react-native-appwrite";
+import { Account, Avatars, Client, ID, Query, Storage, TablesDB } from "react-native-appwrite";
 
 export const config = {
 
@@ -7,7 +7,12 @@ export const config = {
     endpoint: process.env.EXPO_PUBLIC_APPWRITE_ENDPOINT,
     projectId: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID,
     databaseId: process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID,
+    assetsBucketId: process.env.EXPO_PUBLIC_APPWRITE_ASSETS_BUCKET_ID,
     usersTableId: process.env.EXPO_PUBLIC_APPWRITE_USERS_TABLE_ID,
+    categoriesTableId: process.env.EXPO_PUBLIC_APPWRITE_CATEGORIES_TABLE_ID,
+    menuTableId: process.env.EXPO_PUBLIC_APPWRITE_MENU_TABLE_ID,
+    customizationsTableId: process.env.EXPO_PUBLIC_APPWRITE_CUSTOMIZATIONS_TABLE_ID,
+    menuCustomizationsTableId: process.env.EXPO_PUBLIC_APPWRITE_MENU_CUSTOMIZATIONS_TABLE_ID,
 }
 
 const validateConfig = () => {
@@ -38,6 +43,9 @@ export const client = new Client()
                     .setEndpoint(validatedConfig.endpoint)
                     .setProject(validatedConfig.projectId)
                     .setPlatform(validatedConfig.platform);
+
+// Initialize AppWrite bucket service
+const storage = new Storage(client);
 
 /**
  * Define functionalities used from AppWrite
