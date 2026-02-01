@@ -629,3 +629,28 @@ Reference:
 https://appwrite.io/docs/tutorials/react-native/step-6
 
 ==========================================
+
+---------------------------------------------------------------------------
+___  ____ ___ ____ ___  ____ ____ ____    ____ ____ ____ ___  _ _  _ ____ 
+|  \ |__|  |  |__| |__] |__| [__  |___    [__  |___ |___ |  \ | |\ | | __ 
+|__/ |  |  |  |  | |__] |  | ___] |___    ___] |___ |___ |__/ | | \| |__] 
+                                                                          
+---------------------------------------------------------------------------
+
+Created a new filed called 'data.ts' under the lib directory to store dummy data.
+
+Created a new filed called 'seed.ts' under the lib directory to store database seeding operations.
+
+___________________________
+
+Head on over to any page, like 'index.tsx', for example, to create a temporary button to seed the database.
+
+Place this component in a place where it is convenient to press it on the screen.
+
+<Button title="Seed DB" onPress={() => seed().catch((error) => console.error('Failed to seed the database.', error))} />
+
+Press the button once to seed the database with dummy data and reload the app.
+
+!!! Click it once and wait until "✅ Seeding complete." shows in the console unless an error shows !!!
+
+==========================================

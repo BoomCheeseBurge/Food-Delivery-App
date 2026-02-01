@@ -36,7 +36,7 @@ const validateConfig = () => {
 };
 
 // Validate all config fields at once
-const validatedConfig = validateConfig();
+export const validatedConfig = validateConfig();
 
 // Initialize AppWrite client
 export const client = new Client()
@@ -45,7 +45,7 @@ export const client = new Client()
                     .setPlatform(validatedConfig.platform);
 
 // Initialize AppWrite bucket service
-const storage = new Storage(client);
+export const storage = new Storage(client);
 
 /**
  * Define functionalities used from AppWrite
