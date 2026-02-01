@@ -39,7 +39,12 @@ interface TabBarIconProps {
 
 // -----------
 
-export interface MenuItem extends Models.Document {
+interface GetMenuParams {
+    category: string;
+    query: string;
+}
+
+export interface MenuItem extends Models.DefaultRow {
     name: string;
     price: number;
     image_url: string;
@@ -50,12 +55,14 @@ export interface MenuItem extends Models.Document {
     type: string;
 }
 
-export interface Category extends Models.Document {
+export interface Category extends Models.DefaultRow {
     name: string;
     description: string;
 }
 
-export interface User extends Models.Document {
+// -----------
+
+export interface User extends Models.DefaultRow {
     name: string;
     email: string;
     avatar: string;
@@ -103,9 +110,4 @@ interface ProfileFieldProps {
     label: string;
     value: string;
     icon: ImageSourcePropType;
-}
-
-interface GetMenuParams {
-    category: string;
-    query: string;
 }

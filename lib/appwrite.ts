@@ -1,4 +1,4 @@
-import { CreateUserParams, SignInParams } from "@/type";
+import { CreateUserParams, GetMenuParams, SignInParams } from "@/type";
 import { Account, Avatars, Client, ID, Query, Storage, TablesDB } from "react-native-appwrite";
 
 export const config = {
@@ -61,6 +61,8 @@ export const account = new Account(client);
 export const tablesDB = new TablesDB(client);
 
 // ------------------------------------------------------------------------------------
+
+// --------------------------------------------------- USER-RELATED FUNCTIONS ---------------------------------------------------
 
 /**
  * Creates a new user account in Appwrite
@@ -149,6 +151,52 @@ export const getCurrentUser = async () => {
     } catch (error) {
         console.error(error);
 
+        throw new Error(error as string);
+    }
+}
+
+// --------------------------------------------------- MENU-RELATED FUNCTIONS ---------------------------------------------------
+
+export const getMenu = async ({ category, query }: GetMenuParams) => {
+
+    try {
+        // Store queries
+        const queries = [];
+        
+        // Returns row if the said column is equal to any category value
+        if(category) queries.push(Query.equal('categories', category));
+
+        // Searches string columns for provided keywords
+        if(query) queries.push(Query.search('name', query));
+
+        // Perform the menu query
+        const menu = await tablesDB.listRows({
+            databaseId: validatedConfig.databaseId,
+            tableId: validatedConfig.menuTableId,
+            queries: queries
+        });
+
+        // Return menu items
+        return menu.rows;
+
+    } catch (error) {
+        throw new Error(error as string);
+    }
+}
+
+export const getMenuCategory = async () => {
+
+    try {
+        // Perform the menu query
+        const categories = await tablesDB.listRows({
+            databaseId: validatedConfig.databaseId,
+            tableId: validatedConfig.categoriesTableId,
+        });
+
+        // Return categories
+        return categories.rows;
+        
+    } catch (error) {
         throw new Error(error as string);
     }
 }

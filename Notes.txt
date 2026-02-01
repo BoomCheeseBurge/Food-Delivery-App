@@ -654,3 +654,36 @@ Press the button once to seed the database with dummy data and reload the app.
 !!! Click it once and wait until "✅ Seeding complete." shows in the console unless an error shows !!!
 
 ==========================================
+
+---------------------------------------------------------------
+____ ____ ____ ____ ____ _  _    ____ ____ ____ ____ ____ _  _ 
+[__  |___ |__| |__/ |    |__|    [__  |    |__/ |___ |___ |\ | 
+___] |___ |  | |  \ |___ |  |    ___] |___ |  \ |___ |___ | \| 
+                                                               
+---------------------------------------------------------------
+
+Go back to the database in Appwrite console, and open up the 'menu' table.
+
+Go to the 'Indexes' section and create a new index with the following config.
+
+- Index Key: index_1 (any name is fine)
+
+- Index Type:  FullText
+
+- Attribute: name
+
+- Order: ASC
+
+___________________________
+
+Created a reusable hook called 'useAppwrite.ts' in the 'lib' folder to call functions.
+
+___________________________
+
+Updated the 'search.tsx' file to add the foundational UI for the search page.
+
+___________________________
+
+Created a new component called 'MenuCard.tsx' under the components folder.
+
+==========================================
