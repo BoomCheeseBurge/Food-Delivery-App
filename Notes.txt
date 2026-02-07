@@ -687,3 +687,32 @@ ___________________________
 Created a new component called 'MenuCard.tsx' under the components folder.
 
 ==========================================
+
+-----------------------------------------------------------------------------------------
+____ ____ ____ ____ ____ _  _    ____ _  _ ___     ____ _ _    ___ ____ ____ _ _  _ ____ 
+[__  |___ |__| |__/ |    |__|    |__| |\ | |  \    |___ | |     |  |___ |__/ | |\ | | __ 
+___] |___ |  | |  \ |___ |  |    |  | | \| |__/    |    | |___  |  |___ |  \ | | \| |__] 
+                                                                                         
+-----------------------------------------------------------------------------------------
+
+Created 'Filter.tsx' and 'SearchBar.tsx' components.
+
+___________________________
+
+To optimize the search functionality by preventing search on every keypress, the use-debounce package is used.
+
+Source: https://www.npmjs.com/package/use-debounce
+
+Command:
+
+npm i use-debounce
+
+-----
+
+[ !!! INFO !!! ]
+
+The use-debounce package was not used at all since there was an issue with the keyboard dismissing after the flatlist re-renders causing the textinput component to re-render itself as well
+
+For now, the search bar uses the usual input a text and enter to perform the search (not on each keystroke).
+
+==========================================

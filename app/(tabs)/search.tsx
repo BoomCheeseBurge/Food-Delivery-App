@@ -1,8 +1,10 @@
 import CartButton from '@/components/CartButton'
+import Filter from '@/components/Filter'
 import MenuCard from '@/components/MenuCard'
+import SearchBar from '@/components/SearchBar'
 import { getMenu, getMenuCategory } from '@/lib/appwrite'
 import useAppwrite from '@/lib/useAppwrite'
-import { MenuItem } from '@/type'
+import { Category, MenuItem } from '@/type'
 import cn from "clsx"
 import { useLocalSearchParams } from 'expo-router'
 import React, { useEffect } from 'react'
@@ -72,9 +74,11 @@ const Search = () => {
                             <CartButton />
                         </View>
 
-                        <Text>Search Input</Text>
+                        {/* Search Input */}
+                        <SearchBar />
 
-                        <Text>Filter</Text>
+                        {/* Filter Menu Category */}
+                        <Filter categories={categories as unknown as Category[]} />
                     </View>
                 )}
                 ListEmptyComponent={() => !loading && <Text>No Results</Text>}
