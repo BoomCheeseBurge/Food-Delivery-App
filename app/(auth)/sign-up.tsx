@@ -1,5 +1,5 @@
-import AuthButton from '@/components/AuthButton'
 import AuthInput from '@/components/AuthInput'
+import AuthButton from '@/components/CustomButton'
 import { createNewUser } from '@/lib/appwrite'
 import { Link, router } from 'expo-router'
 import React, { useState } from 'react'

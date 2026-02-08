@@ -420,7 +420,7 @@ ___________________________
 
 Created a new folder in root directory called 'store'
 
-Created 'auth.store.ts' file inside that fodler.
+Created 'auth.store.ts' file inside that folder.
 
 ___________________________
 
@@ -714,5 +714,40 @@ npm i use-debounce
 The use-debounce package was not used at all since there was an issue with the keyboard dismissing after the flatlist re-renders causing the textinput component to re-render itself as well
 
 For now, the search bar uses the usual input a text and enter to perform the search (not on each keystroke).
+
+==========================================
+
+----------------------------------------------
+____ ____ ____ ___    ____ ___ ____ ____ ____ 
+|    |__| |__/  |     [__   |  |  | |__/ |___ 
+|___ |  | |  \  |     ___]  |  |__| |  \ |___ 
+                                              
+----------------------------------------------
+
+Created 'cart.store.ts' file within the 'store' folder.
+
+This file is for storing Zustand's global state.
+
+___________________________
+
+Created 'CartHeader.tsx' component.
+
+___________________________
+
+Changed name of 'AuthButton' component to 'CustomButton'.
+
+___________________________
+
+Adjusted 'MenuCard' component to be usable in the 'cart' page as well.
+
+Call the getTotalItems function from the global state within the 'CartButton' component.
+
+___________________________
+
+Created 'CartItem' component.
+
+___________________________
+
+Modified 'CartButton' to re-direct user to the cart page from the cart icon button.
 
 ==========================================

@@ -9,7 +9,7 @@ interface AuthInputProps {
     keyboardType?: "default" | "email-address" | "numeric" | "phone-pad";
 }
 
-interface AuthButtonProps {
+interface CustomButtonProps {
     onPress?: () => void;
     title?: string;
     style?: string;
@@ -27,6 +27,12 @@ interface CreateUserParams {
 interface SignInParams {
     email: string;
     password: string;
+}
+
+export interface User extends Models.DefaultRow {
+    name: string;
+    email: string;
+    avatar: string;
 }
 
 // -----------
@@ -62,12 +68,6 @@ export interface Category extends Models.DefaultRow {
 
 // -----------
 
-export interface User extends Models.DefaultRow {
-    name: string;
-    email: string;
-    avatar: string;
-}
-
 export interface CartCustomization {
     id: string;
     name: string;
@@ -95,6 +95,10 @@ export interface CartStore {
     getTotalPrice: () => number;
 }
 
+interface CartHeaderProps {
+    title?: string;
+}
+
 interface PaymentInfoStripeProps {
     label: string;
     value: string;
@@ -102,9 +106,7 @@ interface PaymentInfoStripeProps {
     valueStyle?: string;
 }
 
-interface CustomHeaderProps {
-    title?: string;
-}
+// -----------
 
 interface ProfileFieldProps {
     label: string;

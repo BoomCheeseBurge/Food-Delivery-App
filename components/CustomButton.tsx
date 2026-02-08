@@ -1,16 +1,16 @@
-import { AuthButtonProps } from '@/type';
+import { CustomButtonProps } from '@/type';
 import cn from "clsx";
 import React from 'react';
 import { ActivityIndicator, Text, TouchableOpacity, View } from 'react-native';
 
-const AuthButton = ({
+const CustomButton = ({
     title = 'Click Me',
     onPress,
     style,
     textStyle,
     leftIcon,
     isLoading = false
-}: AuthButtonProps) => {
+}: CustomButtonProps) => {
 
 
 
@@ -34,4 +34,4 @@ const AuthButton = ({
     )
 }
 
-export default AuthButton
+export default CustomButton
