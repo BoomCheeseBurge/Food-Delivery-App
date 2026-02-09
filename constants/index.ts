@@ -7,19 +7,27 @@ export const CATEGORIES = [
     },
     {
         id: "2",
-        name: "Burger",
+        name: "Burgers",
     },
     {
         id: "3",
-        name: "Pizza",
+        name: "Pizzas",
     },
     {
         id: "4",
-        name: "Wrap",
+        name: "Burritos",
     },
     {
         id: "5",
-        name: "Burrito",
+        name: "Sandwiches",
+    },
+    {
+        id: "6",
+        name: "Wraps",
+    },
+    {
+        id: "7",
+        name: "Bowls",
     },
 ];
 
@@ -27,24 +35,28 @@ export const offers = [
     {
         id: 1,
         title: "SUMMER COMBO",
+        category: "Sandwiches",
         image: images.burgerOne,
         color: "#D33B0D",
     },
     {
         id: 2,
         title: "BURGER BASH",
+        category: "Burgers",
         image: images.burgerTwo,
         color: "#DF5A0C",
     },
     {
         id: 3,
         title: "PIZZA PARTY",
+        category: "Pizzas",
         image: images.pizzaOne,
         color: "#084137",
     },
     {
         id: 4,
         title: "BURRITO DELIGHT",
+        category: "Burritos",
         image: images.burrito,
         color: "#EB920C",
     },

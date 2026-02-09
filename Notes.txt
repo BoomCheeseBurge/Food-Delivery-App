@@ -220,7 +220,15 @@ ___] |___  |  |__| |       |  | |    |    |_|_| |  \ |  |  |___
 
 Created a new project in AppWrite called "Food_Delivery_App" with type "React Native".
 
-The full app name is ReState (com.expo.fooddelivery)
+Click on 'React Native' platform.
+
+Choose the preferred OS.
+
+Enter app name: FoodDelivery
+
+Enter package name: com.expo.fooddelivery
+
+Copy and paste the secret keys over to the .env file.
 
 After creating the AppWrite platform for this mobile app, AppWrite doesn't directly give you the steps to install AppWrite dependencies.
 
@@ -286,6 +294,8 @@ Type: URL, Required
 Head on over to the 'Settings' tab and add a role of type 'Any'.
 
 Select all available permissions and update it.
+
+This type is used so that users can make their account in Appwrite.
 
 ___________________________
 
@@ -749,5 +759,33 @@ Created 'CartItem' component.
 ___________________________
 
 Modified 'CartButton' to re-direct user to the cart page from the cart icon button.
+
+==========================================
+
+-------------------------------------------------------
+_  _ ____ _ _  _    _  _ ____ _  _ _  _    ____ _ _  _ 
+|\/| |__| | |\ |    |\/| |___ |\ | |  |    |___ |  \/  
+|  | |  | | | \|    |  | |___ | \| |__|    |    | _/\_ 
+                                                       
+-------------------------------------------------------
+
+Added 'silver-close-button' icon to the asset folder.
+
+Added 'closeButton' as an export icon in 'icons.ts'.
+
+Added close button to the search field in 'SearchBar' to clear all keywords at once.
+
+___________________________
+
+<Link href="/(tabs)/search"> doesn't include any parameters, so searchParams.category is undefined when you land on the page.
+
+___________________________
+
+
+Added the following flatlist attributes so that the dropdown from the flatlist header is above the rendered item.
+
+	• removeClippedSubviews={false}
+	• ListHeaderComponentStyle={{ zIndex: 999 }}
+
 
 ==========================================

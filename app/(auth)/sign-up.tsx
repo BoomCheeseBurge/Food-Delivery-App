@@ -1,5 +1,5 @@
 import AuthInput from '@/components/AuthInput'
-import AuthButton from '@/components/CustomButton'
+import CustomButton from '@/components/CustomButton'
 import { createNewUser } from '@/lib/appwrite'
 import { Link, router } from 'expo-router'
 import React, { useState } from 'react'
@@ -28,7 +28,7 @@ const SignUp = () => {
             });
 
             // Redirect the user back to home screen
-            router.replace('/');
+            router.replace('/(tabs)');
 
         } catch (error: any) {
             Alert.alert('Error', error.message);
@@ -62,8 +62,8 @@ const SignUp = () => {
                 secureTextEntry={true}
             />
 
-            <AuthButton 
-                title='Sign In'
+            <CustomButton 
+                title='Register'
                 isLoading={isSubmitting}
                 onPress={submit}
             />

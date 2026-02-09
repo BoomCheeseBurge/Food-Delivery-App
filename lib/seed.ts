@@ -96,7 +96,7 @@ async function uploadImageToStorage(imageUrl: string) {
     // prepare the file image
     const fileObj = {
         name: imageUrl.split("/").pop() || `file-${Date.now()}.jpg`,
-        type: blob.type,
+        type: blob.type || "image/png"  ,
         size: blob.size,
         uri: imageUrl,
     };
@@ -109,11 +109,13 @@ async function uploadImageToStorage(imageUrl: string) {
     });
 
     // Return image file for view
-    return storage.getFileView({
-        bucketId: validatedConfig.assetsBucketId,
-        fileId: file.$id,
+    const fileView = storage.getFileViewURL(
+        validatedConfig.assetsBucketId,
+        file.$id,
         // token: '<TOKEN>' // optional
-    });
+    );
+
+    return fileView;
 }
 
 /**
@@ -122,7 +124,9 @@ async function uploadImageToStorage(imageUrl: string) {
  */
 async function seed(): Promise<void> {
 
-    // 1. Clear records in all database tables 
+    console.log("Starting to seed the database...");
+
+    // 1. Clear records in all database tables and storage
     await clearAll(validatedConfig.categoriesTableId);
     await clearAll(validatedConfig.customizationsTableId);
     await clearAll(validatedConfig.menuTableId);

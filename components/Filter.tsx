@@ -1,17 +1,17 @@
 import { Category } from '@/type'
 import cn from "clsx"
 import { router, useLocalSearchParams } from 'expo-router'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FlatList, Platform, Text, TouchableOpacity } from 'react-native'
 
 const Filter = ({ categories }: { categories: Category[] }) => {
 
     // Get expo params
-    const searchParams = useLocalSearchParams();
-
+    const searchParams = useLocalSearchParams<{ category?: string }>();
+    
     // Menu category active indicator
     const [active, setActive] = useState(searchParams.category || '');
-
+        
     // Set which menu category to filter
     const handlePress = (id: string) => {
 
@@ -30,6 +30,12 @@ const Filter = ({ categories }: { categories: Category[] }) => {
         ? [{ $id: 'all', name: 'All' }, ...categories]
         : [{ $id: 'all', name: 'All' }];
 
+    // Update active category state when params change
+    useEffect(() => {
+        setActive(searchParams.category || 'all' );
+    
+    }, [searchParams.category]);
+    
     return (
         <FlatList 
             data={filterData}

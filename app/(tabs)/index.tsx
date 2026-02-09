@@ -1,10 +1,14 @@
 import CartButton from "@/components/CartButton";
+import Dropdown from "@/components/Dropdown";
 import { offers } from "@/constants";
 import { images } from "@/constants/icons";
+import { getMenuCategory } from "@/lib/appwrite";
+import useAppwrite from "@/lib/useAppwrite";
 import useAuthStore from "@/store/auth.store";
 import cn from "clsx";
+import { router } from "expo-router";
 import { Fragment } from "react";
-import { FlatList, Image, Pressable, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Image, Pressable, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
  
 export default function Index() {
@@ -12,6 +16,32 @@ export default function Index() {
     const { user } = useAuthStore();
 
     // console.log("USER: ", JSON.stringify(user, null, 2));
+
+    // Retrieve menu categories
+    const { data: categories } = useAppwrite({
+        fn: getMenuCategory
+    });
+        
+    // Set which menu category to filter
+    const handlePress = (name: string) => {
+
+        // Find the Appwrite object where 'name' matches our local 'item.category'
+        const categoryMatch = categories!.find(
+            (cat) => cat.name === name
+        );
+
+        // Get the ID from the match
+        const categoryId = categoryMatch ? categoryMatch.$id : null;
+
+        // Navigate to the search page if category ID exist
+        if (categoryId) {
+
+            router.push({
+                pathname: '/search',
+                params: { category: categoryId }
+            });
+        }
+    };
 
     return (
         <SafeAreaView className="flex-1 bg-white" >
@@ -21,14 +51,10 @@ export default function Index() {
                 ListHeaderComponent={() => (
                     // Header Navigation
                     <View className="flex-between flex-row w-full my-5" >
-                        <View className="flex-start" >
+                        <View className="flex-start z-50" >
                             <Text className="small-bold text-primary" >DELIVER TO</Text>
 
-                            <TouchableOpacity className="flex-center flex-row gap-x-1 mt-0.5" >
-                                <Text className="paragraph-bold text-dark-100" >Croatia</Text>
-
-                                <Image source={images.arrowDown} className="size-3" resizeMode="contain" />
-                            </TouchableOpacity>
+                            <Dropdown />
                         </View>
 
                         <CartButton />
@@ -41,7 +67,7 @@ export default function Index() {
                             <Pressable 
                                 className={cn("offer-card", (index % 2 == 0) ? 'flex-row-reverse' : 'flex-row')} 
                                 style={{ backgroundColor: item.color }}
-                                onPress={() => {}}
+                                onPress={() => handlePress(item.category)}
                                 android_ripple={{ color: 'rgba(0, 0, 0, 0.2)', foreground: true }}
                             >
                                 {() => (
@@ -69,6 +95,8 @@ export default function Index() {
                     )
                 }}
                 contentContainerClassName="pb-28 px-5"
+                removeClippedSubviews={false}
+                ListHeaderComponentStyle={{ zIndex: 999 }}
             />
         </SafeAreaView>
     );

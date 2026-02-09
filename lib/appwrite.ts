@@ -148,10 +148,19 @@ export const getCurrentUser = async () => {
 
         return users.rows[0];
 
-    } catch (error) {
-        console.error(error);
+    } catch (error: any) {
+        // 401 means "Unauthorized" (i.e., No active session/Guest)
+        // This is a normal state when the app first opens!
+        if (error?.code === 401) {
+            return null; 
+        }
 
-        throw new Error(error as string);
+        // Only log actual unexpected errors (network issues, etc.)
+        console.error("Unexpected error in getCurrentUser:", error);
+
+        return null;
+
+        // throw new Error(error as string);
     }
 }
 

@@ -1,10 +1,10 @@
 import AuthInput from '@/components/AuthInput'
-import AuthButton from '@/components/CustomButton'
 import { signInUser } from '@/lib/appwrite'
 import { Link, router } from 'expo-router'
 import React, { useState } from 'react'
 import { Alert, Text, View } from 'react-native'
 
+import CustomButton from '@/components/CustomButton'
 import * as Sentry from "@sentry/react-native"
 
 const SignIn = () => {
@@ -58,7 +58,7 @@ const SignIn = () => {
                 secureTextEntry={true}
             />
 
-            <AuthButton 
+            <CustomButton 
                 title='Sign In'
                 isLoading={isSubmitting}
                 onPress={submit}
