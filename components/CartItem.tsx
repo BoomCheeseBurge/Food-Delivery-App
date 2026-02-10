@@ -2,15 +2,22 @@ import { images } from "@/constants/icons";
 import { useCartStore } from "@/store/cart.store";
 import { CartItemType } from "@/type";
 import { Image, Text, TouchableOpacity, View } from "react-native";
+import CartCheckbox from "./CartCheckbox";
 
-const CartItem = ({ item }: { item: CartItemType }) => {
+
+const CartItem = ({ item, isSelected, onToggle }: { item: CartItemType; isSelected: boolean; onToggle: () => void; }) => {
 
     // Get the global state
     const { increaseQty, decreaseQty, removeItem } = useCartStore();
 
     return (
         <View className="cart-item">
-            <View className="flex flex-row items-center gap-x-3">
+            <View className="flex flex-row justify-center items-center gap-x-2">
+                <View className="ml-1">
+                    {/* Menu Item Checkbox */}
+                    <CartCheckbox isChecked={isSelected} onToggle={onToggle} />
+                </View>
+
                 {/* Menu Item Image */}
                 <View className="cart-item__image">
                     <Image
@@ -69,7 +76,7 @@ const CartItem = ({ item }: { item: CartItemType }) => {
             {/* Remove this specific item from the cart */}
             <TouchableOpacity
                 onPress={() => removeItem(item.id, item.customizations!)}
-                className="flex-center"
+                className="flex-center mb-1"
             >
                 <Image source={images.trash} className="size-5" resizeMode="contain" />
             </TouchableOpacity>

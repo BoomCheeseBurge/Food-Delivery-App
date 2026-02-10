@@ -42,7 +42,7 @@ const Search = () => {
     
     
     return (
-        <SafeAreaView>
+        <SafeAreaView className='bg-gray-50'>
             <FlatList 
                 data={data}
                 renderItem={({ item, index }) => {

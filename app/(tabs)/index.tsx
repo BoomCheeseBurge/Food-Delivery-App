@@ -44,7 +44,7 @@ export default function Index() {
     };
 
     return (
-        <SafeAreaView className="flex-1 bg-white" >
+        <SafeAreaView className="flex-1 bg-gray-50" >
             {/* Recommended Menu */}
             <FlatList
                 data={offers}

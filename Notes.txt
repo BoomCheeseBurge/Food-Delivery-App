@@ -781,11 +781,58 @@ ___________________________
 
 ___________________________
 
-
 Added the following flatlist attributes so that the dropdown from the flatlist header is above the rendered item.
 
 	• removeClippedSubviews={false}
 	• ListHeaderComponentStyle={{ zIndex: 999 }}
 
+==========================================
+
+---------------------------------------------------------
+____ ____ ____ ___    ___  ____ ____ ____    ____ _ _  _ 
+|    |__| |__/  |     |__] |__| | __ |___    |___ |  \/  
+|___ |  | |  \  |     |    |  | |__] |___    |    | _/\_ 
+                                                         
+---------------------------------------------------------
+
+Added location change option inside the flatlist header (just like in the main menu but different mechanism).
+
+___________________________
+
+Fixed the payment summary labels and border color.
+
+___________________________
+
+Checkbox component has been removed from React Native as of December 2025.
+
+Installed the following checkbox component package:
+
+npm i react-native-bouncy-checkbox
+
+___________________________
+
+Modified the cart store global file for storing selected cart item IDs.
+
+Added the following states:
+
+- selectedIds
+- toggleSelect
+- toggleAll
+- getSelectedTotalPrice
+- Modified 'addItem' and 'removeItem' to adjust the selectedIds as well
+
+___________________________
+
+Updated CustomButton to have a disabled state.
+
+___________________________
+
+Updated the cart page to include a checkbox for selected checkout items.
+
+Added a select or deselect all items in the cart.
+
+___________________________
+
+This cart page will be further modified in the future when menu customizations is implemented.
 
 ==========================================

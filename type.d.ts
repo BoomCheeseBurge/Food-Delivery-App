@@ -16,6 +16,7 @@ interface CustomButtonProps {
     leftIcon?: React.ReactNode;
     textStyle?: string;
     isLoading?: boolean;
+    disabled?: boolean;
 }
 
 interface CreateUserParams {
@@ -86,6 +87,7 @@ export interface CartItemType {
 
 export interface CartStore {
     items: CartItemType[];
+    selectedIds: string[];
     addItem: (item: Omit<CartItemType, "quantity">) => void;
     removeItem: (id: string, customizations: CartCustomization[]) => void;
     increaseQty: (id: string, customizations: CartCustomization[]) => void;
@@ -93,6 +95,9 @@ export interface CartStore {
     clearCart: () => void;
     getTotalItems: () => number;
     getTotalPrice: () => number;
+    toggleSelect: (id: string) => void;
+    toggleAll: () => void;
+    getSelectedTotalPrice: () => number;
 }
 
 interface CartHeaderProps {

@@ -9,15 +9,18 @@ const CustomButton = ({
     style,
     textStyle,
     leftIcon,
-    isLoading = false
+    isLoading = false,
+    disabled = false,
 }: CustomButtonProps) => {
 
 
 
     return (
         <TouchableOpacity
-            className={cn('custom-btn', style)}
+            className={cn('custom-btn', style, (disabled || isLoading) && 'opacity-50')}
             onPress={onPress}
+            disabled={disabled || isLoading}
+            activeOpacity={0.7}
         >
             {leftIcon}
 
