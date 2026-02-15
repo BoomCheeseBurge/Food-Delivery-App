@@ -8,7 +8,7 @@ import { PaymentInfoStripeProps } from '@/type'
 import cn from "clsx"
 import { Link } from 'expo-router'
 import React, { useState } from 'react'
-import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native'
+import { FlatList, Image, Modal, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 // Reusable component for payment summary section
@@ -26,6 +26,9 @@ const PaymentInfoStripe = ({ label,  value,  labelStyle,  valueStyle, }: Payment
 );
 
 const Cart = () => {
+
+    // Currently, use modal to show order
+    const [showOrderModal, setShowOrderModal] = useState(false);
 
     const [showDropdown, setShowDropdown] = useState(false);
     const [address, setAddress] = useState("Home Address");
@@ -55,6 +58,10 @@ const Cart = () => {
 
     // Check if all items are selected
     const isAllSelected = items.length > 0 && selectedIds.length === items.length;
+
+    const handleOrder = () => {
+        setShowOrderModal(true);
+    };
 
     return (
         <SafeAreaView className='bg-gray-50 h-full'>
@@ -170,11 +177,82 @@ const Cart = () => {
                                 valueStyle='base-bold !text-dark-100 !text-right'
                             />
 
-                            <CustomButton title='Order Now' style='mt-10' disabled={selectedIds.length === 0} />
+                            <CustomButton 
+                                title='Order Now' 
+                                style='mt-10' 
+                                disabled={selectedIds.length === 0} 
+                                onPress={handleOrder}
+                            />
                         </View>
                     </View>
                 )}
             />
+
+            {/* Order View Modal */}
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={showOrderModal}
+                onRequestClose={() => setShowOrderModal(false)}
+            >
+                <View className="flex-1 justify-end bg-black/50">
+                    <View className="bg-white rounded-t-3xl p-6 h-[80%]">
+                        {/* Modal Header */}
+                        <View className="flex-row justify-between items-center mb-6">
+                            <Text className="h2-bold">Order Summary</Text>
+                            <TouchableOpacity onPress={() => setShowOrderModal(false)}>
+                                <Image source={images.closeButton} className="size-6" tintColor="#000" />
+                            </TouchableOpacity>
+                        </View>
+
+                        <ScrollView showsVerticalScrollIndicator={false} className="flex-1">
+                            {/* Selected Items List */}
+                            <Text className="paragraph-bold text-gray-200 mb-4 uppercase tracking-widest">Your Items</Text>
+                            
+                            {selectedItems.map((item) => (
+                                <View key={item.id} className="mb-6 border-b border-gray-100 pb-4">
+                                    <View className="flex-row justify-between items-center">
+                                        <View className="flex-row items-center gap-x-3">
+                                            <Text className="base-bold text-primary">{item.quantity}x</Text>
+                                            <Text className="base-bold text-dark-100">{item.name}</Text>
+                                        </View>
+                                        <Text className="paragraph-bold">${(item.price * item.quantity).toFixed(2)}</Text>
+                                    </View>
+
+                                    {/* Mini Customization List */}
+                                    {item.customizations && item.customizations.length > 0 && (
+                                        <View className="ml-8 mt-2">
+                                            {item.customizations.map((c) => (
+                                                <Text key={c.id} className="text-xs text-gray-200 font-quicksand-medium">
+                                                    + {c.name} {c.quantity > 1 ? `(x${c.quantity})` : ''}
+                                                </Text>
+                                            ))}
+                                        </View>
+                                    )}
+                                </View>
+                            ))}
+
+                            {/* Final Price Breakdown */}
+                            <View className="bg-gray-50 p-5 rounded-2xl mt-4">
+                                <PaymentInfoStripe label="Subtotal" value={`$${totalPrice.toFixed(2)}`} />
+                                <PaymentInfoStripe label="Delivery Fee" value="$5.00" />
+                                <PaymentInfoStripe label="Discount" value="-$0.50" valueStyle="!text-success" />
+                                
+                                <View className="border-t border-gray-200 my-3" />
+                                
+                                <PaymentInfoStripe 
+                                    label="Total Amount" 
+                                    value={`$${(totalPrice + 5 - 0.5).toFixed(2)}`}
+                                    labelStyle="base-bold !text-dark-100"
+                                    valueStyle="h3-bold !text-primary"
+                                />
+                            </View>
+
+                            <View className="h-10" />
+                        </ScrollView>
+                    </View>
+                </View>
+            </Modal>
         </SafeAreaView>
     );
 }

@@ -25,8 +25,6 @@ const SelectionList = ({
                 contentContainerClassName='gap-x-10 pb-3 px-2'
                 renderItem={({ item }) => {
                     
-                    console.log('Item Quantity', item);
-
                     return (
                     <SelectionItem 
                         {...item}
