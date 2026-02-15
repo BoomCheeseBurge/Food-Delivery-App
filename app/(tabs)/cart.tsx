@@ -1,7 +1,7 @@
 import CartCheckbox from '@/components/CartCheckbox'
-import CartHeader from '@/components/CartHeader'
 import CartItem from '@/components/CartItem'
 import CustomButton from '@/components/CustomButton'
+import CustomHeader from '@/components/CustomHeader'
 import { images } from '@/constants/icons'
 import { useCartStore } from '@/store/cart.store'
 import { PaymentInfoStripeProps } from '@/type'
@@ -72,7 +72,7 @@ const Cart = () => {
                 ListHeaderComponentStyle={{ zIndex: 999, marginBottom: 30 }}
                 ListHeaderComponent={() => (
                     <View className='w-full'>
-                        <CartHeader title='Your Cart' />
+                        <CustomHeader title='Your Cart' />
 
                         <View className='flex-row items-center justify-between'>
                             <View className='gap-y-2'>

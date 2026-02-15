@@ -47,12 +47,20 @@ interface TabBarIconProps {
 // -----------
 
 interface GetMenuParams {
-    category: string;
-    query: string;
+    category?: string;
+    query?: string;
+    limit?: number;
+}
+
+interface GetMenuCategoryParams {
+    slug?: string;
+    limit?: number;
+    select?: string[];
 }
 
 export interface MenuItem extends Models.DefaultRow {
     name: string;
+    slug: string;
     price: number;
     image_url: string;
     description: string;
@@ -67,6 +75,27 @@ export interface Category extends Models.DefaultRow {
     description: string;
 }
 
+export interface SelectionListProps {
+    title: string;
+    selections: SelectionItemProps[];
+    wrapperStyle?: string;
+    imageStyle?: string;
+    handleIncreaseCount: (item: Omit<CartCustomization, "quantity">) => void;
+    handleDecreaseCount: (id: string) => void;
+}
+
+export interface SelectionItemProps {
+    id: string;
+    name: string;
+    type: string;
+    price: number;
+    quantity: number;
+    imageKey: string;
+    imageStyle?: string;
+    handleIncreaseCount: (item: Omit<CartCustomization, "quantity">) => void;
+    handleDecreaseCount: (id: string) => void;
+}
+
 // -----------
 
 export interface CartCustomization {
@@ -74,6 +103,7 @@ export interface CartCustomization {
     name: string;
     price: number;
     type: string;
+    quantity: number;
 }
 
 export interface CartItemType {
@@ -88,7 +118,7 @@ export interface CartItemType {
 export interface CartStore {
     items: CartItemType[];
     selectedIds: string[];
-    addItem: (item: Omit<CartItemType, "quantity">) => void;
+    addItem: (item: Omit<CartItemType, "quantity">, quantityToAdd?: number) => void;
     removeItem: (id: string, customizations: CartCustomization[]) => void;
     increaseQty: (id: string, customizations: CartCustomization[]) => void;
     decreaseQty: (id: string, customizations: CartCustomization[]) => void;
@@ -100,7 +130,7 @@ export interface CartStore {
     getSelectedTotalPrice: () => number;
 }
 
-interface CartHeaderProps {
+interface CustomHeaderProps {
     title?: string;
 }
 

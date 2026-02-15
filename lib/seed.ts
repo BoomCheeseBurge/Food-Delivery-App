@@ -9,12 +9,14 @@ interface Category {
 
 interface Customization {
     name: string;
+    imageKey: string;
     price: number;
     type: "topping" | "side" | "size" | "crust" | string; // extend as needed
 }
 
 interface MenuItem {
     name: string;
+    slug: string;
     description: string;
     image_url: string;
     price: number;
@@ -162,6 +164,7 @@ async function seed(): Promise<void> {
             rowId: ID.unique(),
             data: {
                 name: cus.name,
+                imageKey: cus.imageKey,
                 price: cus.price,
                 type: cus.type,
             },
@@ -186,6 +189,7 @@ async function seed(): Promise<void> {
             rowId: ID.unique(),
             data: {
                 name: item.name,
+                slug: item.slug,
                 description: item.description,
                 image_url: uploadedImage,
                 price: item.price,

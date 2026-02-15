@@ -1,4 +1,4 @@
-import { CartCustomization, CartStore } from "@/type";
+import { CartCustomization, CartItemType, CartStore } from "@/type";
 import { create } from "zustand";
 
 /**
@@ -36,29 +36,26 @@ export const useCartStore = create<CartStore>((set, get) => ({
     selectedIds: [],
 
     // Add a new menu item to the cart
-    addItem: (item) => {
+    addItem: (item: Omit<CartItemType, "quantity">, quantityToAdd: number = 1) => {
+        
         const customizations = item.customizations ?? [];
+        const items = get().items;
 
-        // // Check whether an item with the same ID & customizations already exists
-        const existing = get().items.find(
-            (i) =>
-                i.id === item.id &&
-                areCustomizationsEqual(i.customizations ?? [], customizations)
+        const existingIndex = items.findIndex((i) =>
+            i.id === item.id && areCustomizationsEqual(i.customizations ?? [], customizations)
         );
 
-        // If so, then increase the quantity
-        if (existing) {
-            set({
-                items: get().items.map((i) =>
-                    i.id === item.id &&
-                    areCustomizationsEqual(i.customizations ?? [], customizations)
-                        ? { ...i, quantity: i.quantity + 1 }
-                        : i
-                ),
-            });
+        if (existingIndex > -1) {
+            const newItems = [...items];
+            // Increase by the specific amount selected by the user
+            newItems[existingIndex] = { 
+                ...newItems[existingIndex], 
+                quantity: newItems[existingIndex].quantity + quantityToAdd 
+            };
+            set({ items: newItems });
         } else {
             set({
-                items: [...get().items, { ...item, quantity: 1, customizations }],
+                items: [...items, { ...item, quantity: quantityToAdd, customizations }],
                 selectedIds: [...get().selectedIds, item.id],
             });
         }

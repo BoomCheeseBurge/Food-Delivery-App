@@ -8,6 +8,8 @@ const Filter = ({ categories }: { categories: Category[] }) => {
 
     // Get expo params
     const searchParams = useLocalSearchParams<{ category?: string }>();
+
+    // console.log("Search Params: ", JSON.stringify(searchParams, null, 2));
     
     // Menu category active indicator
     const [active, setActive] = useState(searchParams.category || '');

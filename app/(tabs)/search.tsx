@@ -39,7 +39,8 @@ const Search = () => {
       refetch({ category, query, limit: 6 });
     
     }, [category, query]);
-    
+
+    // console.log("Menu: ", JSON.stringify(data, null, 2));
     
     return (
         <SafeAreaView className='bg-gray-50'>

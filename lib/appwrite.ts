@@ -1,4 +1,4 @@
-import { CreateUserParams, GetMenuParams, SignInParams } from "@/type";
+import { CreateUserParams, GetMenuCategoryParams, GetMenuParams, SignInParams } from "@/type";
 import { Account, Avatars, Client, ID, Query, Storage, TablesDB } from "react-native-appwrite";
 
 export const config = {
@@ -166,7 +166,10 @@ export const getCurrentUser = async () => {
 
 // --------------------------------------------------- MENU-RELATED FUNCTIONS ---------------------------------------------------
 
-export const getMenu = async ({ category, query }: GetMenuParams) => {
+/**
+ * Retrieve menu with optional filtering by category and search query
+ */
+export const getMenu = async ({ category, query, limit }: GetMenuParams) => {
 
     try {
         // Store queries
@@ -177,6 +180,9 @@ export const getMenu = async ({ category, query }: GetMenuParams) => {
 
         // Searches string columns for provided keywords
         if(query) queries.push(Query.search('name', query));
+
+        // Limit the number of returned menu items
+        if(limit) queries.push(Query.limit(limit));
 
         // Perform the menu query
         const menu = await tablesDB.listRows({
@@ -193,17 +199,64 @@ export const getMenu = async ({ category, query }: GetMenuParams) => {
     }
 }
 
-export const getMenuCategory = async () => {
+/**
+ * Retrieve menu categories
+ */
+export const getMenuCategory = async ({ slug, limit, select = ["*"] }: GetMenuCategoryParams) => {
 
     try {
+        // Store queries
+        const queries = [];
+        
+        // Returns row if the said column is equal to any category value
+        if(slug) queries.push(Query.equal('slug', slug));
+
+        // Limit the number of returned menu items
+        if(limit) queries.push(Query.limit(limit));
+
+        // Limit the number of returned menu items
+        if(select) queries.push(Query.select(select));
+
         // Perform the menu query
         const categories = await tablesDB.listRows({
             databaseId: validatedConfig.databaseId,
             tableId: validatedConfig.categoriesTableId,
+            queries: queries
         });
 
         // Return categories
         return categories.rows;
+        
+    } catch (error) {
+        throw new Error(error as string);
+    }
+}
+
+/**
+ * Retrieve menu item by slug
+ */
+export const getMenuItemBySlug = async ({ slug }: { slug: string }) => {
+
+    try {
+
+        // Perform the menu query
+        const menuItem = await tablesDB.listRows({
+            databaseId: validatedConfig.databaseId,
+            tableId: validatedConfig.menuTableId,
+            queries: [
+                Query.equal('slug', slug),
+                Query.select([
+                    "*", 
+                    "categories.*",
+                    "menuCustomizations.*",
+                    "menuCustomizations.customizations.*",
+                ]),
+                Query.limit(1)
+            ]
+        });
+
+        // Return menu item
+        return menuItem.rows[0];
         
     } catch (error) {
         throw new Error(error as string);

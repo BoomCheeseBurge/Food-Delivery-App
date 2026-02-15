@@ -2,9 +2,9 @@ import { useRouter } from "expo-router";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
 import { images } from "@/constants/icons";
-import { CartHeaderProps } from "@/type";
+import { CustomHeaderProps } from "@/type";
 
-const CartHeader = ({ title }: CartHeaderProps) => {
+const CustomHeader = ({ title }: CustomHeaderProps) => {
     
     const router = useRouter();
 
@@ -41,4 +41,4 @@ const CartHeader = ({ title }: CartHeaderProps) => {
     );
 };
 
-export default CartHeader;
+export default CustomHeader;

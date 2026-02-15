@@ -500,6 +500,10 @@ The following columns are created for this table along with their attributes:
 
 Type: String, Size: 200, Required
 
+- 'slug'
+
+Type: Varchar, Size: 255, Required
+
 - 'description'
 
 Type: String, Size: 2000, Required
@@ -559,6 +563,10 @@ The following columns are created for this table along with their attributes:
 - 'name'
 
 Type: String, Size: 100, Required
+
+- 'imageKey'
+
+Type: Varchar, Size: 255, Required
 
 - 'price'
 
@@ -834,5 +842,84 @@ Added a select or deselect all items in the cart.
 ___________________________
 
 This cart page will be further modified in the future when menu customizations is implemented.
+
+==========================================
+
+--------------------------------------------------------------------
+_  _ ____ _  _ _  _    _ ___ ____ _  _    ___  ____ ___ ____ _ _    
+|\/| |___ |\ | |  |    |  |  |___ |\/|    |  \ |___  |  |__| | |    
+|  | |___ | \| |__|    |  |  |___ |  |    |__/ |___  |  |  | | |___ 
+                                                                    
+--------------------------------------------------------------------
+
+Changed 'CartHeader' to 'CustomHeader'.
+
+___________________________
+
+Added 'menu' folder under 'app'.
+
+Created '[id]' dynamic ID page within that folder.
+
+___________________________
+
+Added 'slug' column to 'menu' table.
+
+added 'getMenuItemBySlug' function in 'appwrite.ts'.
+
+___________________________
+
+Added 'star-unfilled' icon to the asset folder.
+
+Added 'starEmpty' as an export icon in 'icons.ts'.
+
+Added empty star icon to represent leftover unrated stars in the menu item detail page.
+
+___________________________
+
+Added missing images of topping and side dishes to the dummy data for database seeding.
+
+Updated the icons.ts to adjust the new file directory for those images.
+
+Added 'imageKey' column to 'customizations' table for storing the image reference name from 'icons.ts'.
+
+___________________________
+
+Added 'getMenuCategoryParams' in 'type.d.ts'.
+
+___________________________
+
+Added 'plus-button' icon to the asset folder.
+
+Added 'plusButton' as an export icon in 'icons.ts'.
+
+Added plus button as an icon for increasing toppings or side options in the menu item detail page.
+
+___________________________
+
+Created 'SelectionList' and 'SelectionItem' components.
+
+Added types for 'SelectionList' and 'SelectionItems' in 'type.d.ts'.
+
+___________________________
+
+Added 'minus-button' icon to the asset folder.
+
+Added 'minusButton' as an export icon in 'icons.ts'.
+
+Added minus button as an icon for decreasing toppings or side options in the menu item detail page.
+
+___________________________
+
+Relationship is Appwrite documentation can be found here:
+
+https://appwrite.io/docs/products/databases/queries#select-specific-relationship-fields
+
+___________________________
+
+Added 'quantity' property to the 'CartCustomization' type in 'type.d.ts'.
+
+___________________________
+
+Adjusted 'addItem' function in zustand global state to receive dynamic quantity amount in 'cart.store.ts'.
 
 ==========================================

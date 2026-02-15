@@ -11,31 +11,36 @@ const dummyData = {
 
     customizations: [
         // Toppings
-        { name: "Extra Cheese", price: 25, type: "topping" },
-        { name: "Jalapeños", price: 20, type: "topping" },
-        { name: "Onions", price: 10, type: "topping" },
-        { name: "Olives", price: 15, type: "topping" },
-        { name: "Mushrooms", price: 18, type: "topping" },
-        { name: "Tomatoes", price: 10, type: "topping" },
-        { name: "Bacon", price: 30, type: "topping" },
-        { name: "Avocado", price: 35, type: "topping" },
+        { name: "Extra Cheese", imageKey: "extraCheese", price: 25, type: "topping" },
+        { name: "Jalapeños", imageKey: "jalapenos", price: 20, type: "topping" },
+        { name: "Onions", imageKey: "onions", price: 10, type: "topping" },
+        { name: "Olives", imageKey: "olives", price: 15, type: "topping" },
+        { name: "Mushrooms", imageKey: "mushrooms", price: 18, type: "topping" },
+        { name: "Tomatoes", imageKey: "tomatoes", price: 10, type: "topping" },
+        { name: "Bacon", imageKey: "bacon", price: 30, type: "topping" },
+        { name: "Avocado", imageKey: "avocado", price: 35, type: "topping" },
+        { name: "Cucumber", imageKey: "cucumber", price: 25, type: "topping" },
+        { name: "Lettuce", imageKey: "lettuce", price: 15, type: "topping" },
 
         // Sides
-        { name: "Coke", price: 30, type: "side" },
-        { name: "Fries", price: 35, type: "side" },
-        { name: "Garlic Bread", price: 40, type: "side" },
-        { name: "Chicken Nuggets", price: 50, type: "side" },
-        { name: "Iced Tea", price: 28, type: "side" },
-        { name: "Salad", price: 33, type: "side" },
-        { name: "Potato Wedges", price: 38, type: "side" },
-        { name: "Mozzarella Sticks", price: 45, type: "side" },
-        { name: "Sweet Corn", price: 25, type: "side" },
-        { name: "Choco Lava Cake", price: 42, type: "side" },
+        { name: "Chicken Nuggets", imageKey: "chickenNuggets", price: 50, type: "side" },
+        { name: "Choco Lava Cake", imageKey: "chocoLavaCake", price: 42, type: "side" },
+        { name: "Cola", imageKey: "cola", price: 30, type: "side" },
+        { name: "Coleslaw", imageKey: "coleslaw", price: 34, type: "side" },
+        { name: "Fries", imageKey: "fries", price: 35, type: "side" },
+        { name: "Garlic Bread", imageKey: "garlicBread", price: 40, type: "side" },
+        { name: "Iced Tea", imageKey: "icedTea", price: 28, type: "side" },
+        { name: "Mozzarella Sticks", imageKey: "mozzarellaSticks", price: 45, type: "side" },
+        { name: "Onion Rings", imageKey: "onionRings", price: 36, type: "side" },
+        { name: "Potato Wedges", imageKey: "potatoWedges", price: 38, type: "side" },
+        { name: "Salad", imageKey: "salad", price: 33, type: "side" },
+        { name: "Sweet Corn", imageKey: "sweetCorn", price: 25, type: "side" },
     ],
 
     menu: [
         {
             name: "Classic Cheeseburger",
+            slug: "classic-cheeseburger",
             description: "Beef patty, cheese, lettuce, tomato",
             image_url:
                 "https://static.vecteezy.com/system/resources/previews/044/844/600/large_2x/homemade-fresh-tasty-burger-with-meat-and-cheese-classic-cheese-burger-and-vegetable-ai-generated-free-png.png",
@@ -44,10 +49,11 @@ const dummyData = {
             calories: 550,
             protein: 25,
             category_name: "Burgers",
-            customizations: ["Extra Cheese", "Coke", "Fries", "Onions", "Bacon"],
+            customizations: ["Extra Cheese", "Cola", "Fries", "Onions", "Bacon"],
         },
         {
             name: "Pepperoni Pizza",
+            slug: "pepperoni-pizza",
             description: "Loaded with cheese and pepperoni slices",
             image_url:
                 "https://static.vecteezy.com/system/resources/previews/023/742/417/large_2x/pepperoni-pizza-isolated-illustration-ai-generative-free-png.png",
@@ -60,12 +66,13 @@ const dummyData = {
                 "Extra Cheese",
                 "Jalapeños",
                 "Garlic Bread",
-                "Coke",
+                "Cola",
                 "Olives",
             ],
         },
         {
             name: "Bean Burrito",
+            slug: "bean-burrito",
             description: "Stuffed with beans, rice, salsa",
             image_url:
                 "https://static.vecteezy.com/system/resources/previews/055/133/581/large_2x/deliciously-grilled-burritos-filled-with-beans-corn-and-fresh-vegetables-served-with-lime-wedge-and-cilantro-isolated-on-transparent-background-free-png.png",
@@ -78,6 +85,7 @@ const dummyData = {
         },
         {
             name: "BBQ Bacon Burger",
+            slug: "bbq-bacon-burger",
             description: "Smoky BBQ sauce, crispy bacon, cheddar",
             image_url:
                 "https://static.vecteezy.com/system/resources/previews/060/236/245/large_2x/a-large-hamburger-with-cheese-onions-and-lettuce-free-png.png",
@@ -86,10 +94,11 @@ const dummyData = {
             calories: 650,
             protein: 29,
             category_name: "Burgers",
-            customizations: ["Onions", "Fries", "Coke", "Bacon", "Avocado"],
+            customizations: ["Onions", "Fries", "Cola", "Bacon", "Avocado"],
         },
         {
             name: "Chicken Caesar Wrap",
+            slug: "chicken-caesar-wrap",
             description: "Grilled chicken, lettuce, Caesar dressing",
             image_url:
                 "https://static.vecteezy.com/system/resources/previews/048/930/603/large_2x/caesar-wrap-grilled-chicken-isolated-on-transparent-background-free-png.png",
@@ -98,10 +107,11 @@ const dummyData = {
             calories: 490,
             protein: 28,
             category_name: "Wraps",
-            customizations: ["Extra Cheese", "Coke", "Potato Wedges", "Tomatoes"],
+            customizations: ["Extra Cheese", "Cola", "Potato Wedges", "Tomatoes"],
         },
         {
             name: "Grilled Veggie Sandwich",
+            slug: "grilled-veggie-sandwich",
             description: "Roasted veggies, pesto, cheese",
             image_url:
                 "https://static.vecteezy.com/system/resources/previews/047/832/012/large_2x/grilled-sesame-seed-bread-veggie-sandwich-with-tomato-and-onion-free-png.png",
@@ -114,6 +124,7 @@ const dummyData = {
         },
         {
             name: "Double Patty Burger",
+            slug: "double-patty-burger",
             description: "Two juicy beef patties and cheese",
             image_url:
                 "https://static.vecteezy.com/system/resources/previews/060/359/627/large_2x/double-cheeseburger-with-lettuce-tomatoes-cheese-and-sesame-bun-free-png.png",
@@ -126,12 +137,13 @@ const dummyData = {
                 "Extra Cheese",
                 "Onions",
                 "Fries",
-                "Coke",
+                "Cola",
                 "Chicken Nuggets",
             ],
         },
         {
             name: "Paneer Tikka Wrap",
+            slug: "paneer-tikka-wrap",
             description: "Spicy paneer, mint chutney, veggies",
             image_url:
                 "https://static.vecteezy.com/system/resources/previews/057/913/530/large_2x/delicious-wraps-a-tantalizing-array-of-wraps-filled-with-vibrant-vegetables-succulent-fillings-and-fresh-ingredients-artfully-arranged-for-a-mouthwatering-culinary-experience-free-png.png",
@@ -144,6 +156,7 @@ const dummyData = {
         },
         {
             name: "Mexican Burrito Bowl",
+            slug: "mexican-burrito-bowl",
             description: "Rice, beans, corn, guac, salsa",
             image_url:
                 "https://static.vecteezy.com/system/resources/previews/057/466/374/large_2x/healthy-quinoa-bowl-with-avocado-tomato-and-black-beans-ingredients-free-png.png",
@@ -156,6 +169,7 @@ const dummyData = {
         },
         {
             name: "Spicy Chicken Sandwich",
+            slug: "spicy-chicken-sandwich",
             description: "Crispy chicken, spicy sauce, pickles",
             image_url:
                 "https://static.vecteezy.com/system/resources/previews/051/814/008/large_2x/a-grilled-chicken-sandwich-with-lettuce-and-tomatoes-free-png.png",
@@ -168,12 +182,13 @@ const dummyData = {
                 "Jalapeños",
                 "Onions",
                 "Fries",
-                "Coke",
+                "Cola",
                 "Choco Lava Cake",
             ],
         },
         {
             name: "Classic Margherita Pizza",
+            slug: "classic-margherita-pizza",
             description: "Tomato, mozzarella, fresh basil",
             image_url:
                 "https://static.vecteezy.com/system/resources/previews/058/700/845/large_2x/free-isolated-on-transparent-background-delicious-pizza-topped-with-fresh-tomatoes-basil-and-melted-cheese-perfect-for-food-free-png.png",
@@ -182,10 +197,11 @@ const dummyData = {
             calories: 590,
             protein: 21,
             category_name: "Pizzas",
-            customizations: ["Extra Cheese", "Olives", "Coke", "Garlic Bread"],
+            customizations: ["Extra Cheese", "Olives", "Cola", "Garlic Bread"],
         },
         {
             name: "Protein Power Bowl",
+            slug: "protein-power-bowl",
             description: "Grilled chicken, quinoa, veggies",
             image_url:
                 "https://static.vecteezy.com/system/resources/previews/056/106/379/large_2x/top-view-salad-with-chicken-avocado-tomatoes-and-lettuce-free-png.png",
@@ -198,6 +214,7 @@ const dummyData = {
         },
         {
             name: "Paneer Burrito",
+            slug: "paneer-burrito",
             description: "Paneer cubes, spicy masala, rice, beans",
             image_url:
                 "https://static.vecteezy.com/system/resources/previews/056/565/254/large_2x/burrito-with-cauliflower-and-vegetables-free-png.png",
@@ -206,10 +223,11 @@ const dummyData = {
             calories: 510,
             protein: 22,
             category_name: "Burritos",
-            customizations: ["Jalapeños", "Fries", "Garlic Bread", "Coke"],
+            customizations: ["Jalapeños", "Fries", "Garlic Bread", "Cola"],
         },
         {
             name: "Chicken Club Sandwich",
+            slug: "chicken-club-sandwich",
             description: "Grilled chicken, lettuce, cheese, tomato",
             image_url:
                 "https://static.vecteezy.com/system/resources/previews/060/364/135/large_2x/a-flavorful-club-sandwich-with-turkey-bacon-and-fresh-vegetables-sliced-and-isolated-on-a-transparent-background-free-png.png",
