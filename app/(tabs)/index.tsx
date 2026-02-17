@@ -3,12 +3,13 @@ import Dropdown from "@/components/Dropdown";
 import { offers } from "@/constants";
 import { images } from "@/constants/icons";
 import { getMenuCategory } from "@/lib/appwrite";
+import seed from "@/lib/seed";
 import useAppwrite from "@/lib/useAppwrite";
 import useAuthStore from "@/store/auth.store";
 import cn from "clsx";
 import { router } from "expo-router";
 import { Fragment } from "react";
-import { FlatList, Image, Pressable, Text, View } from "react-native";
+import { Button, FlatList, Image, Pressable, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
  
 export default function Index() {
@@ -56,6 +57,8 @@ export default function Index() {
 
                             <Dropdown />
                         </View>
+
+                        <Button title="Seed DB" onPress={() => seed().catch((error) => console.error('Failed to seed the database.', error))} />
 
                         <CartButton />
                     </View>

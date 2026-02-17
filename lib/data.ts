@@ -13,7 +13,7 @@ const dummyData = {
         // Toppings
         { name: "Avocado", imageKey: "avocado", price: 2.25, type: "topping" },
         { name: "Bacon", imageKey: "bacon", price: 1.95, type: "topping" },
-        { name: "Cheese", imageKey: "extraCheese", price: 1.25, type: "topping" },
+        { name: "Cheese", imageKey: "cheese", price: 1.25, type: "topping" },
         { name: "Jalapeños", imageKey: "jalapenos", price: 0.50, type: "topping" },
         { name: "Onions", imageKey: "onions", price: 0.75, type: "topping" },
         { name: "Olives", imageKey: "olives", price: 0.40, type: "topping" },
@@ -49,7 +49,7 @@ const dummyData = {
             calories: 550,
             protein: 25,
             category_name: "Burgers",
-            customizations: ["Extra Cheese", "Cola", "Fries", "Onions", "Bacon"],
+            customizations: ["Cheese", "Cola", "Fries", "Onions", "Bacon"],
         },
         {
             name: "Pepperoni Pizza",
@@ -63,7 +63,7 @@ const dummyData = {
             protein: 30,
             category_name: "Pizzas",
             customizations: [
-                "Extra Cheese",
+                "Cheese",
                 "Jalapeños",
                 "Garlic Bread",
                 "Cola",
@@ -107,7 +107,7 @@ const dummyData = {
             calories: 490,
             protein: 28,
             category_name: "Wraps",
-            customizations: ["Extra Cheese", "Cola", "Potato Wedges", "Tomatoes"],
+            customizations: ["Cheese", "Cola", "Potato Wedges", "Tomatoes"],
         },
         {
             name: "Grilled Veggie Sandwich",
@@ -134,7 +134,7 @@ const dummyData = {
             protein: 35,
             category_name: "Burgers",
             customizations: [
-                "Extra Cheese",
+                "Cheese",
                 "Onions",
                 "Fries",
                 "Cola",
@@ -197,7 +197,7 @@ const dummyData = {
             calories: 590,
             protein: 21,
             category_name: "Pizzas",
-            customizations: ["Extra Cheese", "Olives", "Cola", "Garlic Bread"],
+            customizations: ["Cheese", "Olives", "Cola", "Garlic Bread"],
         },
         {
             name: "Protein Power Bowl",

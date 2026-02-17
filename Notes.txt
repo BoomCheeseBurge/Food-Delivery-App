@@ -522,7 +522,7 @@ Type: Float, Min: 1, Max: 5, Required
 
 - 'calories'
 
-Type: Integer, Min: 1, Max: 10000, Required
+Type: Integer, Min: 0, Max: 10000, Required
 
 - 'protein'
 
@@ -570,7 +570,7 @@ Type: Varchar, Size: 255, Required
 
 - 'price'
 
-Type: Float, Min: 1, Max: 10000, Required
+Type: Float, Min: 0.1, Max: 10000, Required
 
 - 'type'
 

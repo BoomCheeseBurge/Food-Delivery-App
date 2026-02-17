@@ -135,6 +135,8 @@ async function seed(): Promise<void> {
     await clearAll(validatedConfig.menuCustomizationsTableId);
     await clearStorage();
 
+    console.log("✅ Cleared all database tables and storage...");
+
     // 2. Create menu categories
     const categoryMap: Record<string, string> = {};
 
@@ -152,6 +154,8 @@ async function seed(): Promise<void> {
         // Add category ID and name to category mapping
         categoryMap[cat.name] = newRow.$id;
     }
+
+    console.log("✅ Successfully seeded the categories table...");
 
     // 3. Create related customizations for menu
     const customizationMap: Record<string, string> = {};
@@ -175,6 +179,8 @@ async function seed(): Promise<void> {
         // Add customization ID and name to customization mapping
         customizationMap[cus.name] = newRow.$id;
     }
+
+    console.log("✅ Successfully seeded the customizations table...");
 
     // 4. Create menu items
     const menuMap: Record<string, string> = {};
@@ -221,6 +227,8 @@ async function seed(): Promise<void> {
             });
         }
     }
+
+    console.log("✅ Successfully seeded the menu table and its relational tables...");
 
     console.log("✅ Seeding complete.");
 }
