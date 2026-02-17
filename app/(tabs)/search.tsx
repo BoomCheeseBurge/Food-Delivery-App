@@ -24,7 +24,7 @@ const Search = () => {
         params: {
             category,
             query,
-            limit: 6
+            // limit: 6
         }
     });
 
@@ -36,7 +36,11 @@ const Search = () => {
     // Refetch the menu items in case of changes to category or query
     useEffect(() => {
 
-      refetch({ category, query, limit: 6 });
+      refetch({ 
+        category, 
+        query, 
+        // limit: 6 
+    });
     
     }, [category, query]);
 

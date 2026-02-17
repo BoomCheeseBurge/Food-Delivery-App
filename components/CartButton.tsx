@@ -8,7 +8,7 @@ const CartButton = () => {
 
     const { getTotalItems } = useCartStore();
 
-    // Hardcode the total number of cart items temporarily
+    // Show total items in the cart
     const totalItems = getTotalItems();
     
     return (

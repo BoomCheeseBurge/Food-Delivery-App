@@ -37,8 +37,8 @@ import pizzaOne from "@/assets/images/pizza-one.png";
 
 import avocado from "@/assets/images/toppings/avocado.png";
 import bacon from "@/assets/images/toppings/bacon.png";
+import cheese from "@/assets/images/toppings/cheese.png";
 import cucumber from "@/assets/images/toppings/cucumber.png";
-import extraCheese from "@/assets/images/toppings/extra-cheese.png";
 import jalapenos from "@/assets/images/toppings/jalapeños.png";
 import lettuce from "@/assets/images/toppings/lettuce.png";
 import mushrooms from "@/assets/images/toppings/mushrooms.png";
@@ -97,7 +97,7 @@ export const images = {
     avocado,
     bacon,
     cucumber,
-    extraCheese,
+    cheese,
     jalapenos,
     lettuce,
     mushrooms,

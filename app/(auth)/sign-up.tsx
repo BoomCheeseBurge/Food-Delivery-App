@@ -27,8 +27,8 @@ const SignUp = () => {
                 password
             });
 
-            // Redirect the user back to home screen
-            router.replace('/(tabs)');
+            // Redirect the user to sign in page
+            router.replace('/(auth)/sign-in');
 
         } catch (error: any) {
             Alert.alert('Error', error.message);

@@ -9,7 +9,7 @@ export default function AuthLayout() {
     const { isAuthenticated } = useAuthStore();
 
     // Redirect to home screen
-    if(isAuthenticated) return <Redirect href="/(tabs)" />
+    if(isAuthenticated) return <Redirect href="/" />
 
     return (
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>

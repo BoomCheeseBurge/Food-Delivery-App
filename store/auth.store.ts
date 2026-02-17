@@ -1,4 +1,4 @@
-    import { getCurrentUser } from '@/lib/appwrite';
+import { getCurrentUser } from '@/lib/appwrite';
 import { User } from '@/type';
 import { create } from 'zustand';
 

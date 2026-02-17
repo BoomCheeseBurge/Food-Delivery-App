@@ -82,9 +82,6 @@ export const createNewUser = async ({ name, email, password }: CreateUserParams)
         // Throw an error if the account failed to be created
         if(!newAccount) throw Error;
 
-        // Automatically sign in the newly created user
-        await signInUser({ email, password });
-
         // Generates avatar image using the username's initials and stores in database
         const avatarUrl = avatar.getInitialsURL(name);
 
@@ -117,8 +114,28 @@ export const signInUser = async ({ email, password }: SignInParams) => {
         // Create a new session for the user based on email and password inputs
         const session = await account.createEmailPasswordSession({ email, password });
 
+        const user = await getCurrentUser();
+
+        return user;
+
     } catch (error) {
         throw new Error(error as string);
+    }
+}
+
+/**
+ * Sign out current logged-in user
+ * 
+ */
+export async function signOutUser() {
+
+    try {
+        await account.deleteSession({ sessionId: 'current' });
+        return true;
+
+    } catch (error) {
+        console.error(error);
+        return false;
     }
 }
 

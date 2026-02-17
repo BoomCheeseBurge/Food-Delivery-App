@@ -34,14 +34,11 @@ export default function TabLayout() {
 
     const { isAuthenticated } = useAuthStore();
 
-    // 1. Select the items array so this component listens for changes
+    // Select the items array so this component listens for changes
     const items = useCartStore((state) => state.items);
 
-    // 2. Calculate the count based on the observed items
+    // Calculate the count based on the observed items
     const cartCount = items.reduce((total, item) => total + item.quantity, 0);
-
-
-    console.log("Cart Count: ", cartCount);
 
     // Redirect to sign in screen
     if(!isAuthenticated) return <Redirect href="/sign-in" />

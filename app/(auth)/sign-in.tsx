@@ -5,12 +5,16 @@ import React, { useState } from 'react'
 import { Alert, Text, View } from 'react-native'
 
 import CustomButton from '@/components/CustomButton'
+import useAuthStore from '@/store/auth.store'
+import { User } from '@/type'
 import * as Sentry from "@sentry/react-native"
 
 const SignIn = () => {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [form, setForm] = useState({ email: '', password: '' });
+
+    const { setUser, setIsAuthenticated } = useAuthStore();
 
     const submit = async () => {
 
@@ -23,13 +27,19 @@ const SignIn = () => {
 
         try {
             // Sign in the user into Appwrite
-            await signInUser({
+            const user = await signInUser({
                 email,
                 password
             });
 
-            // Redirect the user back to home screen
-            router.replace('/');
+            if (user) {
+                // Update Global State
+                setUser(user as unknown as User);
+                setIsAuthenticated(true);
+
+                // Redirect the user back to home screen
+                router.replace('/');
+            }
 
         } catch (error: any) {
             Alert.alert('Error', error.message);
