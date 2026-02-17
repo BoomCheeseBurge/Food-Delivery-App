@@ -9,7 +9,7 @@ import { Category, MenuItem } from '@/type'
 import cn from "clsx"
 import { useLocalSearchParams } from 'expo-router'
 import React, { useEffect } from 'react'
-import { FlatList, Image, Text, View } from 'react-native'
+import { FlatList, Image, RefreshControl, Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 const Search = () => {
@@ -98,6 +98,18 @@ const Search = () => {
                         </Text>
                     </View>
                 )}
+                refreshControl={
+                    <RefreshControl 
+                        refreshing={loading} 
+                        onRefresh={() => {
+                            refetch({ 
+                                category, 
+                                query, 
+                                // limit: 6 
+                            });
+                        }}
+                    />
+                }
             />
         </SafeAreaView>
     )

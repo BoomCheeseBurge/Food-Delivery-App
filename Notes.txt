@@ -970,3 +970,18 @@ ___________________________
 Fixed sign-up, sign-in, and sign-out, functionality by updating the Zustand global state as well.
 
 ==========================================
+
+-----------------------------------------------------------------------------------------------------
+___  _  _ _    _       ____ ____ ____ ____ ____ ____ _  _    _ _  _    ____ ____ ____ ____ ____ _  _ 
+|__] |  | |    |       |__/ |___ |___ |__/ |___ [__  |__|    | |\ |    [__  |___ |__| |__/ |    |__| 
+|    |__| |___ |___    |  \ |___ |    |  \ |___ ___] |  |    | | \|    ___] |___ |  | |  \ |___ |  | 
+                                                                                                     
+-----------------------------------------------------------------------------------------------------
+
+Utilized React Native's refresh control on the Flatlist component in the search page.
+
+Reference:
+
+https://www.youtube.com/watch?v=qgA7_l13Y5M [Omatsola Dev] (pull down to refresh React Native Tutorial | React Native Expo)
+
+==========================================
