@@ -29,6 +29,8 @@ import emptyState from "@/assets/images/empty-state.png";
 import loginGraphic from "@/assets/images/login-graphic.png";
 import logo from "@/assets/images/logo.png";
 import success from "@/assets/images/success.png";
+import holdBurger from "@/assets/images/two-hands-holding-burger.png";
+
 
 import burgerOne from "@/assets/images/burger-one.png";
 import burgerTwo from "@/assets/images/burger-two.png";
@@ -87,6 +89,7 @@ export const images = {
     avatar,
     emptyState,
     loginGraphic,
+    holdBurger,
     logo,
     success,
     burgerOne,

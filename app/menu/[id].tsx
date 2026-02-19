@@ -282,7 +282,7 @@ const MenuItem = () => {
                 </View>
 
                 {/* Menu Item Delivery Detail */}
-                <View className='justify-evenly flex-row mb-10'>
+                <View className='justify-evenly flex-row mb-10 bg-primary/5 rounded-xl p-3'>
                     <View className='flex-row gap-x-1 items-center'>
                         <Image source={images.dollar} className='size-8' resizeMode='contain' />
 
@@ -325,7 +325,7 @@ const MenuItem = () => {
                     handleDecreaseCount={handleDecreaseCount}
                 />
 
-                <View className='mb-12 flex-row items-center justify-center gap-x-10 px-4 w-full bg-white py-4 rounded-2xl'>
+                <View className='mb-12 flex-row items-center justify-center gap-x-10 px-4 w-full bg-white py-4 rounded-2xl' style={{ elevation: 2 }}>
                     <View className='flex-row items-center justify-center gap-x-6'>
                         <TouchableOpacity onPress={() => setQuantity(prev => Math.max(prev - 1, 1))}>
                             <Image source={images.minus} className='size-6' resizeMode='contain' />

@@ -1,7 +1,8 @@
 import useAuthStore from '@/store/auth.store';
 import * as Sentry from '@sentry/react-native';
 import { useFonts } from 'expo-font';
-import { SplashScreen, Stack } from "expo-router";
+import { Stack } from "expo-router";
+import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from "react";
 import "./globals.css";
 
@@ -24,6 +25,12 @@ Sentry.init({
   // spotlight: __DEV__,
 });
 
+// Set the animation options. This is optional.
+SplashScreen.setOptions({
+  duration: 1000,
+  fade: true,
+});
+
 export default Sentry.wrap(function RootLayout() {
 
     const { isLoading, fetchAuthenticatedUser } = useAuthStore();
@@ -42,7 +49,7 @@ export default Sentry.wrap(function RootLayout() {
         if(error) throw error;
     
         // Hides splash screen once fonts are loaded in the app
-        if(fontsLoaded) SplashScreen.hideAsync();
+        // if(fontsLoaded) SplashScreen.hideAsync();
     }, [fontsLoaded, error]);
 
     useEffect(() => {

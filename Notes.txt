@@ -1011,4 +1011,45 @@ Added 'splash-icon-dark' and 'splash-icon-light' files.
 
 Specified these files for image properties under 'expo-splash-screen' in 'app.json'.
 
+Reference:
+
+https://www.youtube.com/watch?v=3Bsw8a1BJoQ [Expo] (How to create beautiful icons and splash screens for mobile apps )
+
+==========================================
+
+-----------------------------------------------
+_  _ _ _  _ ____ ____    ____ _ _  _ ____ ____ 
+|\/| | |\ | |  | |__/    |___ |  \/  |___ [__  
+|  | | | \| |__| |  \    |    | _/\_ |___ ___] 
+                                               
+-----------------------------------------------
+
+Removed the DB seed button in the home page.
+
+___________________________
+
+Added shadow to selection list item component in menu details page.
+
+Added shadow to add to cart button in menu details page.
+
+___________________________
+
+Added fade effect on splash screen configuration in the root layout.
+
+Reference:
+
+https://docs.expo.dev/versions/latest/sdk/splash-screen/#delay-hiding-the-splash-screen
+
+___________________________
+
+Created 'login-success' as a test page under 'test' folder.
+
+___________________________
+
+Added 'two-hands-holding-burger' icon to the asset folder.
+
+Added 'holdBurger' as an export icon in 'icons.ts'.
+
+Used the image as a background image for the login success page.
+
 ==========================================

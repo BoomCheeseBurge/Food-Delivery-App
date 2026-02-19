@@ -31,7 +31,18 @@ const SelectionItem = ({
     }
     
     return (
-        <View className='relative'>
+        <View 
+            className='relative bg-white rounded-2xl'
+            style={{
+                // iOS: Directional Shadow
+                shadowColor: "#000",
+                shadowOpacity: 0.25,
+                shadowRadius: 10,
+                
+                // Android: Global Shadow
+                elevation: 5,
+            }}
+        >
             <View className='justify-center pt-2 items-center bg-white w-full rounded-2xl absolute top-0 z-40'>
                 <Image source={images[imageKey as keyof typeof images]} className={cn(imageStyle)} />
             </View>
