@@ -985,3 +985,30 @@ Reference:
 https://www.youtube.com/watch?v=qgA7_l13Y5M [Omatsola Dev] (pull down to refresh React Native Tutorial | React Native Expo)
 
 ==========================================
+
+---------------------------------------------------------------------------------------
+____ _ _  _    ____ ___  ___     _    ____ ____ ____    ____ ____ _  _ ___  ____ ____ 
+|___ |  \/     |__| |__] |__]    |    |  | | __ |  |    |__/ |___ |\ | |  \ |___ |__/ 
+|    | _/\_    |  | |    |       |___ |__| |__] |__|    |  \ |___ | \| |__/ |___ |  \ 
+                                                                                      
+---------------------------------------------------------------------------------------
+
+Added 'ios-light', 'ios-dark', 'ios-tinted' app icons for IOS OS.
+
+Specified these files for their respective icons in 'app.json'.
+
+___________________________
+
+Added 'adaptive-icon' app icon for Android OS.
+
+Specified this file for 'foregroundImage' and 'monochromeImage' properties in 'app.json'.
+
+'backgroundImage' is not specified since it will override the 'backgroundColor'.
+
+___________________________
+
+Added 'splash-icon-dark' and 'splash-icon-light' files.
+
+Specified these files for image properties under 'expo-splash-screen' in 'app.json'.
+
+==========================================
