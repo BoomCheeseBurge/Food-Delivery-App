@@ -29,6 +29,7 @@
 3. 🤳 [Quick Start](#quick-start)
 4. ✍️ [AppWrite Database Seeding](#db-seeding)
 5. ⌚ [To Be Added](#to-be-added)
+6. 📋 [Additional Info](#additional-info)
 
 ## <a name="tech-stack">⚙️ Tech Stack</a>
 
@@ -204,3 +205,49 @@ Plans for the future are to implement the following features:
 - [ ] Implement default address 1 & 2 and custom address configuration to where the food will be delivered
 - [ ] Implement efficient profile update
 - [ ] Implement Stripe payment integration for cart checkout
+
+## <a name="additional-info">📋 Additional Info</a>
+
+### Project Structure Overview
+
+- <ins>app</ins>
+
+  - (auth)
+
+  - (tabs)
+
+  - test [for testing purposes, can be deleted if needed]
+
+  - menu [menu item detail page]
+
+  - global.css
+
+- <ins>assets</ins>
+
+  - fonts
+
+  - icons
+
+  - images
+
+- <ins>components</ins>
+
+- <ins>constants</ins>
+
+- <ins>lib</ins>
+
+    - useAppwrite [custom hook especially for fetching data from Appwrite providing loading state and refetch function]
+
+  - appwrite [appwrite configurations and related user-defined functions]
+
+  - data [dummy data for seeding]
+
+  - seed [code to seed Appwrite DB]
+
+- <ins>type.d.ts</ins> [global type collection for Typescript]
+
+- <ins>image.d.ts</ins> [allowed image file type to be processed]
+
+- <ins>tailwind.config.js</ins> [configure Tailwind]
+
+- <ins>app.json</ins> [configure the app behaviour]
